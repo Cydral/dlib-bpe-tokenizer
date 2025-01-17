@@ -157,8 +157,8 @@ public:
             if (new_token_length > MAX_TOKEN_LENGTH) {
                 if (verbose) {
                     std::cout << "\r"
-                        << std::setw(100) << std::left
-                        << "Skipping merge " << std::to_string(i + 1) << "/" << std::to_string(num_merges) << ": ("
+                        << std::setw(100) << std::flush
+                        << "\rskipping merge " << std::to_string(i + 1) << "/" << std::to_string(num_merges) << ": ("
                         << std::to_string(pair.first) << "," << std::to_string(pair.second) << ") -> new token length "
                         << std::to_string(new_token_length) << " exceeds limit of " << std::to_string(MAX_TOKEN_LENGTH)
                         << std::flush;
@@ -174,8 +174,8 @@ public:
 
             if (verbose) {
                 std::cout << "\r"
-                    << std::setw(100) << std::left
-                    << "merge " << std::to_string(i + 1) << "/" << std::to_string(num_merges) << ": ("
+                    << std::setw(100) << std::flush
+                    << "\rmerge " << std::to_string(i + 1) << "/" << std::to_string(num_merges) << ": ("
                     << std::to_string(pair.first) << "," << std::to_string(pair.second) << ") -> " << std::to_string(idx)
                     << " (" << bytes_to_string(vocab[idx]) << ") had "
                     << std::to_string(stats[pair]) << " occurrences"
