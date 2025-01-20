@@ -271,9 +271,8 @@ public:
 
         merges.clear();
         vocab.clear();
-        for (int i = 0; i < BASE_VOCAB_SIZE; ++i) {
+        for (int i = 0; i < BASE_VOCAB_SIZE; ++i)
             vocab[i] = std::vector<uint8_t>{ static_cast<uint8_t>(i) };
-        }
 
         int idx = BASE_VOCAB_SIZE + (int)special_tokens.size();
         while (std::getline(file, line)) {
@@ -293,12 +292,19 @@ public:
             return false;
         }
         while (std::getline(vocab_file, line)) {
+            // Find the first '[' and the last ']' in the line
             size_t start = line.find('[');
-            size_t end = line.find(']');
+            size_t end = line.rfind(']');  // Use rfind to find the last ']'
             if (start != std::string::npos && end != std::string::npos) {
                 std::string token_str = line.substr(start + 1, end - start - 1);
-                int id = std::stoi(line.substr(end + 2));
-                vocab[id] = string_to_bytes(token_str);
+                try {
+                    idx = std::stoi(line.substr(end + 2));
+                    vocab[idx] = string_to_bytes(token_str);
+                }
+                catch (const std::invalid_argument& /* e */) {
+                    std::cerr << "Error: Invalid token ID in vocab file: " << line << "\n";
+                    continue;
+                }
             }
         }
         return true;
