@@ -16,7 +16,7 @@ This repository contains an implementation of the **Byte-Pair Encoding (BPE)** a
 To use this program, ensure you have the following dependencies installed:
 
 - **Boost Libraries**: Required for program options and filesystem operations.
-- **C++ Compiler**: A C++17-compatible compiler is recommended.
+- **C++ Compiler**: A C++14-compatible compiler is recommended.
 
 ## Example Model: `dlib_t3k_base`
 
