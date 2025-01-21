@@ -122,9 +122,12 @@ public:
         }
         // Initialize special tokens with sequential IDs
         special_tokens = {
-            {"<|endoftext|>", BASE_VOCAB_SIZE},
-            {"<|unk|>", (BASE_VOCAB_SIZE + 1)},
-            {"<|pad|>", (BASE_VOCAB_SIZE + 2)}
+            {"<|startoftext|>", BASE_VOCAB_SIZE},
+            {"<|endoftext|>", BASE_VOCAB_SIZE + 1},
+            {"<|question|>", BASE_VOCAB_SIZE + 2},
+            {"<|response|>", BASE_VOCAB_SIZE + 3},
+            {"<|unk|>", (BASE_VOCAB_SIZE + 4)},
+            {"<|pad|>", (BASE_VOCAB_SIZE + 5)}
         };
     }
 
@@ -204,7 +207,6 @@ public:
 
         // Merge pairs in order of their merge priority
         while (!pq.empty()) {
-            // Replace C++17 structured binding with traditional access
             const auto& top_element = pq.top(); // Get the pair with the smallest merge order
             int merge_order = top_element.first;
             const std::pair<int, int>& pair = top_element.second;
@@ -304,10 +306,9 @@ public:
         for (int i = 0; i < BASE_VOCAB_SIZE; ++i)
             vocab[i] = std::vector<uint8_t>{ static_cast<uint8_t>(i) };
 
-        int idx = BASE_VOCAB_SIZE + (int)special_tokens.size();
+        int idx = BASE_VOCAB_SIZE + (int)special_tokens.size(), a, b;
         while (std::getline(file, line)) {
             std::istringstream iss(line);
-            int a, b;
             iss >> a >> b;
             merges[{a, b}] = idx;
 
@@ -343,9 +344,7 @@ public:
     // Get the ID of a special token
     int get_special_token_id(const std::string& token) const {
         auto it = special_tokens.find(token);
-        if (it != special_tokens.end()) {
-            return it->second;
-        }
+        if (it != special_tokens.end()) return it->second;
         throw std::runtime_error("Special token not found: " + token);
     }
 
@@ -482,6 +481,7 @@ int main(int argc, char* argv[]) {
     desc.add_options()
         ("train-tokenizer", "Train the BPE tokenizer")
         ("data", po::value<std::string>(), "Specify a file or directory containing the training data")
+        ("data-size", po::value<size_t>()->default_value(10), "Set the maximum size of data to load (in MB, default: 10MB)")
         ("vocab-size", po::value<int>()->default_value(500), "Set the target vocabulary size (default: 500)")
         ("help", "Print this help message");
 
@@ -502,8 +502,9 @@ int main(int argc, char* argv[]) {
     std::string data = "The quick brown fox jumps over the lazy dog, and the dog barks loudly!";
     if (vm.count("data")) {
         std::string data_path = vm["data"].as<std::string>();
+        size_t data_size = vm["data-size"].as<size_t>() * 1024 * 1024;
         std::cout << "Loading data from: " << data_path << std::endl;
-        data = load_data_from_file_or_directory(data_path, 1000 * 1024 * 1024);
+        data = load_data_from_file_or_directory(data_path, data_size);
         if (data.empty()) {
             std::cerr << "Error: No data found in the specified path" << std::endl;
             return 1;
