@@ -515,7 +515,7 @@ int main(int argc, char* argv[]) {
         int vocab_size = vm["vocab-size"].as<int>();
         tokenizer.train(data, vocab_size, true);
 
-        std::string str_vocab_size = vocab_size > 1000 ? (std::to_string(vocab_size / 1000) + "k") : std::to_string(vocab_size);
+        std::string str_vocab_size = vocab_size >= 1000 ? (std::to_string(vocab_size / 1000) + "k") : std::to_string(vocab_size);
         std::string file_prefix = "dlib_t" + str_vocab_size + "_base";
         tokenizer.save(file_prefix);
         std::cout << "Model saved to " << file_prefix << ".[model|vocab]" << std::endl;
