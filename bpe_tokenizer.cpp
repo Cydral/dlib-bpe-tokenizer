@@ -275,7 +275,7 @@ public:
         std::ofstream model_file(file_prefix + ".model");
         model_file << "bpe-tokenizer v1\n";
 
-        for (int idx = BASE_VOCAB_SIZE; idx < vocab_size; ++idx) {
+        for (int idx = BASE_VOCAB_SIZE + (int)special_tokens.size(); idx < vocab_size; ++idx) {
             for (const auto& merge_pair : merges) {
                 if (merge_pair.second == idx) {
                     model_file << merge_pair.first.first << " " << merge_pair.first.second << "\n";
@@ -291,29 +291,21 @@ public:
     }
 
     // Load the tokenizer model and vocabulary from files
-    bool load(const std::string& model_file) {
+    bool load(const std::string& model_file) {                
         std::ifstream file(model_file + ".model");
         if (!file.is_open()) {
             std::cerr << "Error: Unable to open model file: " << model_file + ".model" << "\n";
             return false;
         }
-
         std::string line;
         std::getline(file, line); // Version
 
-        merges.clear();
-        vocab.clear();
-        for (int i = 0; i < BASE_VOCAB_SIZE; ++i)
-            vocab[i] = std::vector<uint8_t>{ static_cast<uint8_t>(i) };
-
         int idx = BASE_VOCAB_SIZE + (int)special_tokens.size(), a, b;
+        merges.clear();
         while (std::getline(file, line)) {
             std::istringstream iss(line);
             iss >> a >> b;
             merges[{a, b}] = idx;
-
-            vocab[idx].insert(vocab[idx].end(), vocab[a].begin(), vocab[a].end());
-            vocab[idx].insert(vocab[idx].end(), vocab[b].begin(), vocab[b].end());
             idx++;
         }
 
@@ -322,6 +314,7 @@ public:
             std::cerr << "Error: Unable to open vocab file: " << model_file + ".vocab" << "\n";
             return false;
         }
+        vocab.clear();
         while (std::getline(vocab_file, line)) {
             // Find the first '[' and the last ']' in the line
             size_t start = line.find('[');
@@ -371,7 +364,7 @@ private:
             return hash1 ^ (hash2 << 1);
         }
     };
-    std::unordered_map<std::pair<int, int>, int, pair_hash> get_stats(const std::vector<int>& ids) {        
+    std::unordered_map<std::pair<int, int>, int, pair_hash> get_stats(const std::vector<int>& ids) {
         std::unordered_map<std::pair<int, int>, int, pair_hash> global_stats;
         std::mutex global_stats_mutex;
 
@@ -437,7 +430,8 @@ private:
             if (i < ids.size() - 1 && ids[i] == pair.first && ids[i + 1] == pair.second) {
                 new_ids.push_back(idx); // Replace the pair with the new token ID
                 i++; // Skip the next token
-            } else new_ids.push_back(ids[i]); // Keep the current token
+            }
+            else new_ids.push_back(ids[i]); // Keep the current token
         }
 
         return new_ids;
@@ -449,7 +443,8 @@ private:
         for (uint8_t byte : bytes) {
             if (byte >= 32 && byte <= 126) {
                 result += static_cast<char>(byte);
-            } else {
+            }
+            else {
                 char buf[5];
                 snprintf(buf, sizeof(buf), "\\x%02x", byte);
                 result += buf;
@@ -467,7 +462,8 @@ private:
                 uint8_t byte = static_cast<uint8_t>(std::stoul(hex, nullptr, 16));
                 bytes.push_back(byte);
                 i += 3;
-            } else {
+            }
+            else {
                 bytes.push_back(static_cast<uint8_t>(str[i]));
             }
         }
@@ -519,6 +515,12 @@ int main(int argc, char* argv[]) {
         int vocab_size = vm["vocab-size"].as<int>();
         tokenizer.train(data, vocab_size, true);
 
+        std::string str_vocab_size = vocab_size > 1000 ? (std::to_string(vocab_size / 1000) + "k") : std::to_string(vocab_size);
+        std::string file_prefix = "dlib_t" + str_vocab_size + "_base";
+        tokenizer.save(file_prefix);
+        std::cout << "Model saved to " << file_prefix << ".[model|vocab]" << std::endl;
+        tokenizer.load(file_prefix);
+
         auto encoded = tokenizer.encode(test);
         std::cout << "Encoded: ";
         for (int id : encoded) {
@@ -531,12 +533,6 @@ int main(int argc, char* argv[]) {
         encoded.push_back(tokenizer.get_special_token_id("<|pad|>"));
         std::string decoded = tokenizer.decode(encoded);
         std::cout << "Decoded: " << decoded << "\n";
-
-        std::string str_vocab_size = vocab_size > 1000 ? (std::to_string(vocab_size/1000) + "k") : std::to_string(vocab_size);
-        std::string file_prefix = "dlib_t" + str_vocab_size + "_base";
-        tokenizer.save(file_prefix);
-        std::cout << "Model saved to " << file_prefix << ".[model|vocab]" << std::endl;
-        tokenizer.load(file_prefix);
     }
 
     return 0;
