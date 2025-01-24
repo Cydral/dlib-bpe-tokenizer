@@ -139,9 +139,7 @@ public:
 
         // Convert text to byte IDs
         std::vector<int> ids;
-        for (char c : text) {
-            ids.push_back(static_cast<uint8_t>(c));
-        }
+        for (char c : text) ids.push_back(static_cast<uint8_t>(c));
 
         // Perform BPE merges
         for (int i = 0; i < num_merges; ++i) {
@@ -398,7 +396,7 @@ private:
     // Finds the most frequent pair of tokens in the given statistics map that does not exceed the maximum token length
     std::pair<int, int> get_most_frequent_pair(const std::unordered_map<std::pair<int, int>, int, pair_hash>& stats) {
         std::pair<int, int> best_pair = { -1, -1 }; // Initialize the best pair to an invalid value
-        int max_count = 0; // Initialize the maximum frequency count to 0
+        double max_score = 0; // Initialize the maximum score to 0
 
         // Iterate over all pairs in the statistics map
         for (const auto& stat : stats) {
@@ -407,18 +405,19 @@ private:
 
             // Check if the new token formed by merging the pair would exceed the maximum allowed length
             size_t new_token_length = vocab[pair.first].size() + vocab[pair.second].size();
-            if (new_token_length > MAX_TOKEN_LENGTH) {
-                continue; // Skip this pair if it exceeds the maximum token length
-            }
+            if (new_token_length > MAX_TOKEN_LENGTH) continue; // Skip this pair if it exceeds the maximum token length
 
-            // Update the best pair if the current pair has a higher frequency
-            if (count > max_count) {
+            // Calculate the score for this pair (frequency * length)
+            double score = count * new_token_length;
+
+            // Update the best pair if the current pair has a higher score
+            if (score > max_score) {
                 best_pair = pair;
-                max_count = count;
+                max_score = score;
             }
         }
 
-        return best_pair; // Return the most frequent valid pair
+        return best_pair; // Return the pair with the highest score
     }
 
     // Merge the most frequent pair in the token sequence
