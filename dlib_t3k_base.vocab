@@ -1,0 +1,3000 @@
+[\x00] 0
+[\x01] 1
+[\x02] 2
+[\x03] 3
+[\x04] 4
+[\x05] 5
+[\x06] 6
+[\x07] 7
+[\x08] 8
+[\x09] 9
+[\x0a] 10
+[\x0b] 11
+[\x0c] 12
+[\x0d] 13
+[\x0e] 14
+[\x0f] 15
+[\x10] 16
+[\x11] 17
+[\x12] 18
+[\x13] 19
+[\x14] 20
+[\x15] 21
+[\x16] 22
+[\x17] 23
+[\x18] 24
+[\x19] 25
+[\x1a] 26
+[\x1b] 27
+[\x1c] 28
+[\x1d] 29
+[\x1e] 30
+[\x1f] 31
+[ ] 32
+[!] 33
+["] 34
+[#] 35
+[$] 36
+[%] 37
+[&] 38
+['] 39
+[(] 40
+[)] 41
+[*] 42
+[+] 43
+[,] 44
+[-] 45
+[.] 46
+[/] 47
+[0] 48
+[1] 49
+[2] 50
+[3] 51
+[4] 52
+[5] 53
+[6] 54
+[7] 55
+[8] 56
+[9] 57
+[:] 58
+[;] 59
+[<] 60
+[=] 61
+[>] 62
+[?] 63
+[@] 64
+[A] 65
+[B] 66
+[C] 67
+[D] 68
+[E] 69
+[F] 70
+[G] 71
+[H] 72
+[I] 73
+[J] 74
+[K] 75
+[L] 76
+[M] 77
+[N] 78
+[O] 79
+[P] 80
+[Q] 81
+[R] 82
+[S] 83
+[T] 84
+[U] 85
+[V] 86
+[W] 87
+[X] 88
+[Y] 89
+[Z] 90
+[[] 91
+[\] 92
+[]] 93
+[^] 94
+[_] 95
+[`] 96
+[a] 97
+[b] 98
+[c] 99
+[d] 100
+[e] 101
+[f] 102
+[g] 103
+[h] 104
+[i] 105
+[j] 106
+[k] 107
+[l] 108
+[m] 109
+[n] 110
+[o] 111
+[p] 112
+[q] 113
+[r] 114
+[s] 115
+[t] 116
+[u] 117
+[v] 118
+[w] 119
+[x] 120
+[y] 121
+[z] 122
+[{] 123
+[|] 124
+[}] 125
+[~] 126
+[\x7f] 127
+[\x80] 128
+[\x81] 129
+[\x82] 130
+[\x83] 131
+[\x84] 132
+[\x85] 133
+[\x86] 134
+[\x87] 135
+[\x88] 136
+[\x89] 137
+[\x8a] 138
+[\x8b] 139
+[\x8c] 140
+[\x8d] 141
+[\x8e] 142
+[\x8f] 143
+[\x90] 144
+[\x91] 145
+[\x92] 146
+[\x93] 147
+[\x94] 148
+[\x95] 149
+[\x96] 150
+[\x97] 151
+[\x98] 152
+[\x99] 153
+[\x9a] 154
+[\x9b] 155
+[\x9c] 156
+[\x9d] 157
+[\x9e] 158
+[\x9f] 159
+[\xa0] 160
+[\xa1] 161
+[\xa2] 162
+[\xa3] 163
+[\xa4] 164
+[\xa5] 165
+[\xa6] 166
+[\xa7] 167
+[\xa8] 168
+[\xa9] 169
+[\xaa] 170
+[\xab] 171
+[\xac] 172
+[\xad] 173
+[\xae] 174
+[\xaf] 175
+[\xb0] 176
+[\xb1] 177
+[\xb2] 178
+[\xb3] 179
+[\xb4] 180
+[\xb5] 181
+[\xb6] 182
+[\xb7] 183
+[\xb8] 184
+[\xb9] 185
+[\xba] 186
+[\xbb] 187
+[\xbc] 188
+[\xbd] 189
+[\xbe] 190
+[\xbf] 191
+[\xc0] 192
+[\xc1] 193
+[\xc2] 194
+[\xc3] 195
+[\xc4] 196
+[\xc5] 197
+[\xc6] 198
+[\xc7] 199
+[\xc8] 200
+[\xc9] 201
+[\xca] 202
+[\xcb] 203
+[\xcc] 204
+[\xcd] 205
+[\xce] 206
+[\xcf] 207
+[\xd0] 208
+[\xd1] 209
+[\xd2] 210
+[\xd3] 211
+[\xd4] 212
+[\xd5] 213
+[\xd6] 214
+[\xd7] 215
+[\xd8] 216
+[\xd9] 217
+[\xda] 218
+[\xdb] 219
+[\xdc] 220
+[\xdd] 221
+[\xde] 222
+[\xdf] 223
+[\xe0] 224
+[\xe1] 225
+[\xe2] 226
+[\xe3] 227
+[\xe4] 228
+[\xe5] 229
+[\xe6] 230
+[\xe7] 231
+[\xe8] 232
+[\xe9] 233
+[\xea] 234
+[\xeb] 235
+[\xec] 236
+[\xed] 237
+[\xee] 238
+[\xef] 239
+[\xf0] 240
+[\xf1] 241
+[\xf2] 242
+[\xf3] 243
+[\xf4] 244
+[\xf5] 245
+[\xf6] 246
+[\xf7] 247
+[\xf8] 248
+[\xf9] 249
+[\xfa] 250
+[\xfb] 251
+[\xfc] 252
+[\xfd] 253
+[\xfe] 254
+[\xff] 255
+[e ] 262
+[he ] 263
+[the ] 264
+[ the ] 265
+[s ] 266
+[in] 267
+[d ] 268
+[er] 269
+[an] 270
+[on] 271
+[ed ] 272
+[and ] 273
+[t ] 274
+[, ] 275
+[or] 276
+[en] 277
+[.\x0a] 278
+[th] 279
+[ar] 280
+[y ] 281
+[ing] 282
+[al] 283
+[ing ] 284
+[ti] 285
+[of] 286
+[tion] 287
+[of ] 288
+[of the ] 289
+[er ] 290
+[re] 291
+[as ] 292
+[in ] 293
+[o ] 294
+[to ] 295
+[a ] 296
+[ation] 297
+[st] 298
+[ou] 299
+[at] 300
+[is ] 301
+[es ] 302
+[al ] 303
+[ic] 304
+[in the ] 305
+[was ] 306
+[om] 307
+[an ] 308
+[for] 309
+[The ] 310
+[.\x0aThe ] 311
+[es] 312
+[d the ] 313
+[it] 314
+[on ] 315
+[, and ] 316
+[el] 317
+[il] 318
+[ and ] 319
+[is] 320
+[ch] 321
+[ol] 322
+[th ] 323
+[ation ] 324
+[at ] 325
+[as] 326
+[ere ] 327
+[ent] 328
+[am] 329
+[, the ] 330
+[all] 331
+[ent ] 332
+[that ] 333
+[en ] 334
+[ro] 335
+[ac] 336
+[ec] 337
+[ver] 338
+[ur] 339
+[o the ] 340
+[to the ] 341
+[e of ] 342
+[for ] 343
+[ith ] 344
+[with ] 345
+[em] 346
+[ing the ] 347
+[were ] 348
+[n ] 349
+[ed to ] 350
+[con] 351
+[si] 352
+[ow] 353
+[or ] 354
+[his ] 355
+[and the ] 356
+[ir] 357
+[ed the ] 358
+[tion ] 359
+[ve ] 360
+[ri] 361
+[di] 362
+[ly ] 363
+[wh] 364
+['s ] 365
+[us] 366
+[rom] 367
+[from] 368
+[from ] 369
+[un] 370
+[ter] 371
+[oun] 372
+[ear] 373
+[.\x0aI] 374
+[s and ] 375
+[com] 376
+[ther ] 377
+[ag] 378
+[s of ] 379
+[pro] 380
+[pl] 381
+[ed in ] 382
+[ad] 383
+[at the ] 384
+[ed b] 385
+[ul] 386
+[are ] 387
+[s, ] 388
+[.\x0aIn ] 389
+[h ] 390
+[19] 391
+[ed by ] 392
+[on the ] 393
+[e, ] 394
+[e the ] 395
+[res] 396
+[ity ] 397
+[et] 398
+[per] 399
+[ig] 400
+[for the ] 401
+[ding ] 402
+[os] 403
+[whic] 404
+[which ] 405
+[.\x0aA] 406
+[ha] 407
+[ of ] 408
+[ally ] 409
+[tic] 410
+[y the ] 411
+[as the ] 412
+[ra] 413
+[ated ] 414
+[inc] 415
+[form] 416
+[le] 417
+[ate ] 418
+[the] 419
+[and] 420
+[le ] 421
+[ch ] 422
+[su] 423
+[par] 424
+[li] 425
+[de] 426
+[op] 427
+[th the ] 428
+[ith the ] 429
+[other ] 430
+[ab] 431
+[20] 432
+[" ] 433
+[had ] 434
+[s.\x0a] 435
+[ed] 436
+[it ] 437
+[e and ] 438
+[ex] 439
+[ers ] 440
+[ter ] 441
+[een ] 442
+[ic ] 443
+[k ] 444
+[t of ] 445
+[oc] 446
+[im] 447
+[um] 448
+[over] 449
+[ted ] 450
+[ary ] 451
+[ain] 452
+[, which ] 453
+[our] 454
+[str] 455
+[enc] 456
+[ational ] 457
+[their] 458
+[their ] 459
+[ay ] 460
+[se] 461
+[ap] 462
+[have ] 463
+[.\x0aT] 464
+[anc] 465
+[its ] 466
+[ of the ] 467
+[der] 468
+[por] 469
+[ber ] 470
+[cont] 471
+[rec] 472
+[ame ] 473
+[est ] 474
+[age ] 475
+[ong] 476
+[one ] 477
+[y, ] 478
+[sh] 479
+[tive ] 480
+[be ] 481
+[ to ] 482
+[ell] 483
+[id] 484
+[.\x0aH] 485
+[igh] 486
+[as a ] 487
+[own ] 488
+[est] 489
+[es, ] 490
+[ment ] 491
+[so ] 492
+[also ] 493
+[ill] 494
+[oug] 495
+[year] 496
+[uc] 497
+[by ] 498
+[qu] 499
+[st ] 500
+[irst ] 501
+[first ] 502
+[ot ] 503
+[not ] 504
+[all ] 505
+[this ] 506
+[wor] 507
+[any ] 508
+[es and ] 509
+[ist] 510
+[ran] 511
+[ther] 512
+[ew] 513
+[ot] 514
+[been ] 515
+[ld ] 516
+[ould ] 517
+[comm] 518
+[es of ] 519
+[ical ] 520
+[bu] 521
+[s.\x0aThe ] 522
+[ver ] 523
+[ember ] 524
+[tim] 525
+[s in ] 526
+[ar ] 527
+[pres] 528
+[incl] 529
+[inclu] 530
+[200] 531
+[e was ] 532
+[s were ] 533
+[has ] 534
+[ay] 535
+[ in ] 536
+[ was ] 537
+[ome ] 538
+[who ] 539
+[but ] 540
+[inter] 541
+[ser] 542
+[ect] 543
+[ial ] 544
+[ving ] 545
+[ount] 546
+[ost ] 547
+[ough ] 548
+[ore ] 549
+[would ] 550
+[comp] 551
+[s to ] 552
+[ew ] 553
+[s, and ] 554
+[.\x0aTh] 555
+[end] 556
+[ak] 557
+[fter ] 558
+[out ] 559
+[.\x0aIt ] 560
+[e in ] 561
+[vel] 562
+[able ] 563
+[oll] 564
+[they ] 565
+[more ] 566
+[duc] 567
+[produc] 568
+[sp] 569
+[od] 570
+[e to ] 571
+[t the ] 572
+[ang] 573
+[tion of ] 574
+[ited ] 575
+[og] 576
+[ations ] 577
+[St] 578
+[ater ] 579
+[fic] 580
+[includ] 581
+[ound ] 582
+[be] 583
+[ulation ] 584
+[ous ] 585
+[der ] 586
+[ish] 587
+[ies ] 588
+[ed a ] 589
+[ain ] 590
+[201] 591
+[ine ] 592
+[.\x0aThis ] 593
+[cent] 594
+[port] 595
+[rac] 596
+[tur] 597
+[most ] 598
+[bl] 599
+[n the ] 600
+[vi] 601
+[is a ] 602
+[such ] 603
+[is the ] 604
+[en the ] 605
+[ast ] 606
+[there ] 607
+[ese ] 608
+[ard ] 609
+[ep] 610
+[e.\x0a] 611
+[sion ] 612
+[after ] 613
+[ved ] 614
+[ard] 615
+[ity of ] 616
+[0 ] 617
+[ever] 618
+[att] 619
+[ip] 620
+[ship] 621
+[ast] 622
+[Ch] 623
+[es.\x0aThe ] 624
+[ates ] 625
+[ough] 626
+[only ] 627
+[s the ] 628
+[18] 629
+[pre] 630
+[et ] 631
+[ant] 632
+[bec] 633
+[ant ] 634
+[nited ] 635
+[United ] 636
+[cl] 637
+[ion ] 638
+[.\x0aHe ] 639
+[ents ] 640
+[", ] 641
+[such as ] 642
+[where ] 643
+[fer] 644
+[ass] 645
+[arg] 646
+[es.\x0a] 647
+[ong ] 648
+[ev] 649
+[) ] 650
+[was the ] 651
+[ence ] 652
+[with a ] 653
+[\xe2\x80] 654
+[e.\x0aThe ] 655
+[ber] 656
+[istor] 657
+[dis] 658
+[ian ] 659
+[mer] 660
+[meric] 661
+[Americ] 662
+[enti] 663
+[her ] 664
+[ting ] 665
+[. ] 666
+[tic ] 667
+[\xe2\x80\x93] 668
+[present] 669
+[overn] 670
+[land ] 671
+[dition] 672
+[up] 673
+[s are ] 674
+[he was ] 675
+[ener] 676
+[by the ] 677
+[ative ] 678
+[under] 679
+[ollow] 680
+[follow] 681
+[land] 682
+[wo ] 683
+[two ] 684
+[gr] 685
+[ement ] 686
+[sid] 687
+[in 19] 688
+[ed on ] 689
+[ea] 690
+[ating ] 691
+[oo] 692
+[int] 693
+[ess] 694
+[ion] 695
+[mar] 696
+[\x0a\x0a] 697
+[govern] 698
+[y of ] 699
+[many ] 700
+[ph] 701
+[amil] 702
+[famil] 703
+[ight ] 704
+[min] 705
+[), ] 706
+["The ] 707
+[count] 708
+[.\x0aIn 19] 709
+[.\x0aS] 710
+[ut] 711
+[ely ] 712
+[iver] 713
+[into ] 714
+[econ] 715
+[them] 716
+[early ] 717
+[me] 718
+[ure] 719
+[ance ] 720
+[ish ] 721
+[sion] 722
+[ow ] 723
+[can ] 724
+[than ] 725
+[tical ] 726
+[became ] 727
+[ile ] 728
+[man] 729
+[uring ] 730
+[des] 731
+[ari] 732
+[nown ] 733
+[known ] 734
+[work] 735
+[y.\x0aThe ] 736
+[ade ] 737
+[ubl] 738
+[y and ] 739
+[ound] 740
+[struc] 741
+[when ] 742
+[owever] 743
+[owever, ] 744
+[po] 745
+[some ] 746
+[ess ] 747
+[.\x0aThere ] 748
+[fin] 749
+[ree ] 750
+[ter the ] 751
+[ous] 752
+[over ] 753
+[a, ] 754
+[ment] 755
+[ed for ] 756
+[being ] 757
+[ed that ] 758
+[pop] 759
+[though ] 760
+[s that ] 761
+[centur] 762
+[play] 763
+[ose ] 764
+[old ] 765
+[amp] 766
+[three ] 767
+[ed with ] 768
+[publ] 769
+[air] 770
+[el ] 771
+[later ] 772
+[mo] 773
+[plac] 774
+[ell ] 775
+[olog] 776
+[velop] 777
+[develop] 778
+[are] 779
+[reg] 780
+[ording ] 781
+[about ] 782
+[ens] 783
+[iti] 784
+[part] 785
+[, but ] 786
+[serv] 787
+[es the ] 788
+[new ] 789
+[ from ] 790
+[ann] 791
+[til] 792
+[cording ] 793
+[ite ] 794
+[larg] 795
+[own] 796
+[ey ] 797
+[y.\x0a] 798
+[ually ] 799
+[ist ] 800
+[it was ] 801
+[ween ] 802
+[etween ] 803
+[between ] 804
+[histor] 805
+[these ] 806
+[ric] 807
+[ple ] 808
+[contin] 809
+[continu] 810
+[pe] 811
+[ivers] 812
+[ack] 813
+[offic] 814
+[loc] 815
+[mil] 816
+[gener] 817
+[umber ] 818
+[number ] 819
+[ail] 820
+[made ] 821
+[ool] 822
+[chool] 823
+[ach] 824
+[Mar] 825
+[cri] 826
+[er, ] 827
+[av] 828
+[perform] 829
+[prov] 830
+[rit] 831
+[fi] 832
+[rough] 833
+[spec] 834
+[school] 835
+[fl] 836
+[ed and ] 837
+[fac] 838
+[aw] 839
+[a and ] 840
+[time ] 841
+[ust ] 842
+[consi] 843
+[compl] 844
+[buil] 845
+[dian ] 846
+[our ] 847
+[" and ] 848
+[am ] 849
+[stem] 850
+[ystem] 851
+[system] 852
+[age of ] 853
+[rans] 854
+[trans] 855
+[cre] 856
+[econd ] 857
+[es in ] 858
+[us ] 859
+[tra] 860
+[pos] 861
+[atur] 862
+[ith] 863
+[lin] 864
+[ning ] 865
+[son ] 866
+[for a ] 867
+[ular ] 868
+[ali] 869
+[.\x0aA ] 870
+[mon] 871
+[man ] 872
+[then ] 873
+[tit] 874
+[second ] 875
+[ing, ] 876
+[ision ] 877
+[00 ] 878
+[tions ] 879
+[; ] 880
+[ten ] 881
+[consider] 882
+[veral ] 883
+[several ] 884
+[ack ] 885
+[New ] 886
+[can be ] 887
+[to be ] 888
+[call] 889
+[called ] 890
+[.\x0aO] 891
+[eng] 892
+[eg] 893
+[199] 894
+[with] 895
+[living ] 896
+[ection ] 897
+[ation, ] 898
+[ased ] 899
+[main] 900
+[pol] 901
+[ug] 902
+[ill ] 903
+[rel] 904
+[ud] 905
+[ris] 906
+[him] 907
+[ouse] 908
+[house] 909
+[househ] 910
+[househol] 911
+[out] 912
+[f ] 913
+[while ] 914
+[Par] 915
+[through] 916
+[uary ] 917
+[again] 918
+[Com] 919
+[" (] 920
+[ement] 921
+[ts ] 922
+[nam] 923
+[dec] 924
+[e, and ] 925
+[) and ] 926
+[outh ] 927
+[In] 928
+[bo] 929
+[rough ] 930
+[through ] 931
+[use ] 932
+[chang] 933
+[ed, ] 934
+[port ] 935
+[sub] 936
+[direc] 937
+[against ] 938
+[es, and ] 939
+[m ] 940
+[5 ] 941
+[d of ] 942
+[of the c] 943
+[family ] 944
+[tiv] 945
+[servic] 946
+[verage ] 947
+[average ] 948
+[ince ] 949
+[% ] 950
+[during ] 951
+[on, ] 952
+[.\x0aAfter ] 953
+[desig] 954
+[partic] 955
+[until] 956
+[ord] 957
+[ren] 958
+[ently ] 959
+[well ] 960
+[as well ] 961
+[ected ] 962
+[ad ] 963
+[il ] 964
+[er and ] 965
+[commun] 966
+[ing to ] 967
+[ing and ] 968
+[ob] 969
+[nivers] 970
+[Univers] 971
+[could ] 972
+[may ] 973
+[oper] 974
+[fil] 975
+[ual ] 976
+[te] 977
+[ater] 978
+[id ] 979
+[ed as ] 980
+[publish] 981
+[% from ] 982
+[ffer] 983
+[differ] 984
+[row] 985
+[org] 986
+[iv] 987
+[ory ] 988
+[rele] 989
+[releas] 990
+[ood ] 991
+[ing a ] 992
+[.\x0aB] 993
+[e, the ] 994
+[those ] 995
+[out the ] 996
+[sel] 997
+[ake ] 998
+[tis] 999
+[sur] 1000
+[States ] 1001
+[ful] 1002
+[both ] 1003
+[under ] 1004
+[ind] 1005
+[.\x0aIt is ] 1006
+[sig] 1007
+[sign] 1008
+[until ] 1009
+[s, the ] 1010
+[befor] 1011
+[char] 1012
+[charac] 1013
+[i ] 1014
+[ry ] 1015
+[often ] 1016
+[, a ] 1017
+[design] 1018
+[orig] 1019
+[origin] 1020
+[had a ] 1021
+[raph] 1022
+[ograph] 1023
+[Con] 1024
+[star] 1025
+[part ] 1026
+[thern ] 1027
+[ounc] 1028
+[ower ] 1029
+[).\x0aThe ] 1030
+[stat] 1031
+[leg] 1032
+[pear] 1033
+[appear] 1034
+[um ] 1035
+[used ] 1036
+[grou] 1037
+[group] 1038
+[before ] 1039
+[ble ] 1040
+[stric] 1041
+[ection] 1042
+[es were ] 1043
+[es to ] 1044
+[pri] 1045
+[es are ] 1046
+[resid] 1047
+[orth ] 1048
+[peri] 1049
+[ook ] 1050
+[per ] 1051
+[remain] 1052
+[same ] 1053
+[provid] 1054
+[work ] 1055
+[construc] 1056
+[way ] 1057
+[writ] 1058
+[.\x0aThey ] 1059
+[resul] 1060
+[.\x0aF] 1061
+[median ] 1062
+[in a ] 1063
+[pr] 1064
+[sc] 1065
+[.\x0aM] 1066
+[1 ] 1067
+[years ] 1068
+[eld ] 1069
+[ect ] 1070
+[complet] 1071
+[ing of ] 1072
+[af] 1073
+[found ] 1074
+[formul] 1075
+[formula] 1076
+[formula_] 1077
+[rig] 1078
+[Count] 1079
+[vari] 1080
+[ans ] 1081
+[stri] 1082
+[iz] 1083
+[ed in 19] 1084
+[peo] 1085
+[people ] 1086
+[city ] 1087
+[reas] 1088
+[requ] 1089
+[town ] 1090
+[sup] 1091
+[resp] 1092
+[respon] 1093
+[high] 1094
+[area ] 1095
+[fe] 1096
+[.\x0aD] 1097
+[ecember ] 1098
+[tish ] 1099
+[ritish ] 1100
+[British ] 1101
+[ight] 1102
+[public ] 1103
+[ship ] 1104
+[bor] 1105
+[organ] 1106
+[ue ] 1107
+[cur] 1108
+[forc] 1109
+[located ] 1110
+[, with ] 1111
+[each ] 1112
+[ne] 1113
+[abl] 1114
+[establ] 1115
+[we] 1116
+[descri] 1117
+[ke ] 1118
+[2 ] 1119
+[anuary ] 1120
+[January ] 1121
+[former ] 1122
+[ef] 1123
+[an, ] 1124
+[ment of ] 1125
+[increas] 1126
+[was a ] 1127
+[.\x0aAs ] 1128
+[ern ] 1129
+[% of ] 1130
+[y, the ] 1131
+[another ] 1132
+[bas] 1133
+[it is ] 1134
+[.\x0aW] 1135
+[rol] 1136
+[include ] 1137
+[cap] 1138
+[ia ] 1139
+[inv] 1140
+[tember ] 1141
+[e's ] 1142
+[no ] 1143
+[speci] 1144
+[she ] 1145
+[ton ] 1146
+[tern] 1147
+[% were ] 1148
+[car] 1149
+[tor] 1150
+[oci] 1151
+[large ] 1152
+[ong the ] 1153
+[name ] 1154
+[Th] 1155
+[ings ] 1156
+[er of ] 1157
+[end ] 1158
+[beg] 1159
+[began ] 1160
+[ov] 1161
+[ovember ] 1162
+[y's ] 1163
+[ath] 1164
+[will ] 1165
+[gre] 1166
+[198] 1167
+[itical ] 1168
+[School] 1169
+[retur] 1170
+[son] 1171
+[ential ] 1172
+[ron] 1173
+[aking ] 1174
+[state ] 1175
+[describ] 1176
+[acc] 1177
+[king ] 1178
+[local ] 1179
+[progr] 1180
+[program] 1181
+[orld ] 1182
+[World ] 1183
+[div] 1184
+[divid] 1185
+[individ] 1186
+[stit] 1187
+[posi] 1188
+[righ] 1189
+[chil] 1190
+[child] 1191
+[co] 1192
+[sing] 1193
+[since ] 1194
+[, there ] 1195
+[.\x0aOn ] 1196
+[estern ] 1197
+[l ] 1198
+[: ] 1199
+[es that ] 1200
+[ear ] 1201
+[record] 1202
+[ustr] 1203
+[arm] 1204
+[4 ] 1205
+[au] 1206
+[br] 1207
+[.\x0aAl] 1208
+[y, and ] 1209
+[sive ] 1210
+[every ] 1211
+[mus] 1212
+[Ar] 1213
+[emal] 1214
+[femal] 1215
+[able to ] 1216
+[bel] 1217
+[t to ] 1218
+[ext] 1219
+[use of ] 1220
+[col] 1221
+[stud] 1222
+[s for ] 1223
+[various ] 1224
+[cover] 1225
+[ately ] 1226
+[organiz] 1227
+[ed his ] 1228
+[ause ] 1229
+[because ] 1230
+[ed from ] 1231
+[used to ] 1232
+[igh ] 1233
+[lead] 1234
+[ically ] 1235
+[ros] 1236
+[3 ] 1237
+[part of ] 1238
+[mark] 1239
+[197] 1240
+[elect] 1241
+[incom] 1242
+[ice ] 1243
+[of the S] 1244
+[import] 1245
+[als ] 1246
+[An] 1247
+[6 ] 1248
+[stor] 1249
+[hous] 1250
+[ility ] 1251
+[, he ] 1252
+[North ] 1253
+[marri] 1254
+[ed by a ] 1255
+[sol] 1256
+[four ] 1257
+[very ] 1258
+[Al] 1259
+[En] 1260
+[Eng] 1261
+[itary ] 1262
+[.\x0aThese ] 1263
+[ution] 1264
+[dition ] 1265
+[around ] 1266
+[main ] 1267
+[illi] 1268
+[control] 1269
+[Ger] 1270
+[German ] 1271
+[century ] 1272
+[" and "] 1273
+[ture ] 1274
+[like ] 1275
+[built ] 1276
+[rece] 1277
+[version ] 1278
+[has a ] 1279
+[announc] 1280
+[s.\x0aIn ] 1281
+[band ] 1282
+[mem] 1283
+[without ] 1284
+[milli] 1285
+[million ] 1286
+[.\x0aP] 1287
+[person] 1288
+[March ] 1289
+[mis] 1290
+[ty ] 1291
+[peopl] 1292
+[seas] 1293
+[usually ] 1294
+[popular ] 1295
+[.\x0aHis ] 1296
+[000 ] 1297
+[,000 ] 1298
+[to] 1299
+[tober ] 1300
+[ctober ] 1301
+[October ] 1302
+[conc] 1303
+[t and ] 1304
+[".\x0aThe ] 1305
+[appro] 1306
+[, who ] 1307
+[Gre] 1308
+[side ] 1309
+[named ] 1310
+[ in the ] 1311
+[company ] 1312
+[income ] 1313
+[ence of ] 1314
+[17] 1315
+[largest ] 1316
+[arly ] 1317
+[even ] 1318
+[South ] 1319
+[ated in ] 1320
+[bruary ] 1321
+[ebruary ] 1322
+[bur] 1323
+[ma] 1324
+[nor] 1325
+[cess] 1326
+[centr] 1327
+[now ] 1328
+[st the ] 1329
+[Col] 1330
+[exam] 1331
+[exampl] 1332
+[popul] 1333
+[he] 1334
+[general ] 1335
+[ue to ] 1336
+[196] 1337
+[member ] 1338
+[econom] 1339
+[intern] 1340
+[series ] 1341
+[dep] 1342
+[depend] 1343
+[independ] 1344
+[ature] 1345
+[suc] 1346
+[success] 1347
+[rench ] 1348
+[French ] 1349
+[ying ] 1350
+[.\x0aHistor] 1351
+[level] 1352
+[due to ] 1353
+[cas] 1354
+[4, ] 1355
+[roduc] 1356
+[introduc] 1357
+[common ] 1358
+[aid ] 1359
+[though] 1360
+[one of ] 1361
+[bers ] 1362
+[members ] 1363
+[served ] 1364
+[New Y] 1365
+[New Yor] 1366
+[compan] 1367
+[replac] 1368
+[sible ] 1369
+[times ] 1370
+[film ] 1371
+[d not ] 1372
+[did not ] 1373
+[ome] 1374
+[some] 1375
+[allow] 1376
+[rang] 1377
+[ature ] 1378
+[ugust ] 1379
+[August ] 1380
+[ett] 1381
+[ood] 1382
+[year ] 1383
+[her] 1384
+[ub] 1385
+[out of ] 1386
+["\x0a] 1387
+[."\x0a] 1388
+[outhern ] 1389
+[consist] 1390
+[s from ] 1391
+[tri] 1392
+[if] 1393
+[cor] 1394
+[till ] 1395
+[still ] 1396
+[having ] 1397
+[ially ] 1398
+[view] 1399
+[become ] 1400
+[coll] 1401
+[high ] 1402
+[bro] 1403
+[contain] 1404
+[oy] 1405
+[order ] 1406
+[ted to ] 1407
+[single ] 1408
+[ve the ] 1409
+[evision ] 1410
+[lif] 1411
+[s with ] 1412
+[support ] 1413
+[tain] 1414
+[what ] 1415
+[mall ] 1416
+[small ] 1417
+[8 ] 1418
+[written ] 1419
+[urther ] 1420
+[further ] 1421
+[tr] 1422
+[ity, ] 1423
+[curr] 1424
+[presid] 1425
+[them ] 1426
+[married ] 1427
+[fun] 1428
+[or of ] 1429
+[stand] 1430
+[uro] 1431
+[Euro] 1432
+[Europe] 1433
+[angu] 1434
+[langu] 1435
+[" was ] 1436
+[took ] 1437
+[For] 1438
+[pan] 1439
+[dur] 1440
+[town] 1441
+[up ] 1442
+[is also ] 1443
+[ator] 1444
+[ed as a ] 1445
+[jor ] 1446
+[major ] 1447
+[vis] 1448
+[ick] 1449
+[ven] 1450
+[urch] 1451
+[1, ] 1452
+[direct] 1453
+[inning ] 1454
+[ust] 1455
+[e-] 1456
+[individu] 1457
+[ending ] 1458
+[addition] 1459
+[line ] 1460
+[prom] 1461
+[water ] 1462
+[film] 1463
+[dom] 1464
+[ock] 1465
+[yp] 1466
+[event] 1467
+[day ] 1468
+[les ] 1469
+[inst] 1470
+[using ] 1471
+[x ] 1472
+[lim] 1473
+[refer] 1474
+[medi] 1475
+[00] 1476
+[enn] 1477
+[astern ] 1478
+[), and ] 1479
+[cour] 1480
+[Cent] 1481
+[late ] 1482
+[moder] 1483
+[ward ] 1484
+[ities ] 1485
+[ism] 1486
+[ital ] 1487
+[ters ] 1488
+[7 ] 1489
+[.\x0aIn 200] 1490
+[al, ] 1491
+[on a ] 1492
+[poin] 1493
+[cul] 1494
+[open] 1495
+[tain ] 1496
+[him ] 1497
+[County ] 1498
+[point] 1499
+[region] 1500
+[.\x0aE] 1501
+[Stat] 1502
+[ture] 1503
+[modern ] 1504
+[\xe2\x80\x93 ] 1505
+[ality ] 1506
+[less ] 1507
+[alb] 1508
+[sist] 1509
+[based ] 1510
+[shor] 1511
+[ther, ] 1512
+[ire ] 1513
+[held ] 1514
+[return] 1515
+[ure ] 1516
+[show] 1517
+[tivel] 1518
+[ed at ] 1519
+[ook] 1520
+[Jo] 1521
+[Joh] 1522
+[John ] 1523
+[Car] 1524
+[distric] 1525
+[ated by ] 1526
+[ed into ] 1527
+[recei] 1528
+[Can] 1529
+[ession] 1530
+[along ] 1531
+[ously ] 1532
+[ash] 1533
+[ties ] 1534
+[ers, ] 1535
+[simil] 1536
+[' ] 1537
+[.\x0aAc] 1538
+[ames ] 1539
+[s.\x0aH] 1540
+[system ] 1541
+[pass] 1542
+[ability ] 1543
+[.\x0aL] 1544
+[tively ] 1545
+[ame the ] 1546
+[ious ] 1547
+[school ] 1548
+[pril ] 1549
+[April ] 1550
+[oman ] 1551
+[power ] 1552
+[ers and ] 1553
+[ination ] 1554
+[Comm] 1555
+[sequ] 1556
+[194] 1557
+[t, ] 1558
+[equ] 1559
+[otal ] 1560
+[total ] 1561
+[ze was ] 1562
+[termin] 1563
+[arch] 1564
+[s have ] 1565
+[camp] 1566
+[mission ] 1567
+[election] 1568
+[old] 1569
+[on-] 1570
+[tional ] 1571
+[famili] 1572
+[.\x0aR] 1573
+[dist] 1574
+[th and ] 1575
+[ass ] 1576
+[ays ] 1577
+[may be ] 1578
+[last ] 1579
+[ed in a ] 1580
+[ject] 1581
+[uch ] 1582
+[much ] 1583
+[field ] 1584
+[ished ] 1585
+[ing in ] 1586
+[ether ] 1587
+[born ] 1588
+[home ] 1589
+[a.\x0aThe ] 1590
+[off] 1591
+[ed.\x0aThe ] 1592
+[thor] 1593
+[author] 1594
+[prot] 1595
+[particul] 1596
+[World W] 1597
+[manag] 1598
+[non-] 1599
+[back ] 1600
+[found] 1601
+[infl] 1602
+[influ] 1603
+[eneral ] 1604
+[General ] 1605
+[vill] 1606
+[hel] 1607
+[music ] 1608
+[aim] 1609
+[claim] 1610
+[de ] 1611
+[une ] 1612
+[June ] 1613
+[.\x0aWh] 1614
+[A ] 1615
+[languag] 1616
+[soci] 1617
+[ranc] 1618
+[Franc] 1619
+[ated to ] 1620
+[ost] 1621
+[quare ] 1622
+[square ] 1623
+[ported ] 1624
+[ave ] 1625
+[al and ] 1626
+[Willi] 1627
+[ution ] 1628
+[9 ] 1629
+[ir ] 1630
+[ication ] 1631
+[that he ] 1632
+[sec] 1633
+[ile the ] 1634
+[associ] 1635
+[Intern] 1636
+[William ] 1637
+[identi] 1638
+[ocial ] 1639
+[Chin] 1640
+[inn] 1641
+[ire] 1642
+[read] 1643
+[Austr] 1644
+[I ] 1645
+[long] 1646
+[should ] 1647
+[clos] 1648
+[Nor] 1649
+[fric] 1650
+[Afric] 1651
+[ft ] 1652
+[es, the ] 1653
+[station ] 1654
+[ies of ] 1655
+[who was ] 1656
+[ate the ] 1657
+[initi] 1658
+[Engl] 1659
+[English ] 1660
+[African ] 1661
+[childr] 1662
+[.\x0aIn 201] 1663
+[relation] 1664
+[ective ] 1665
+[typ] 1666
+[trac] 1667
+[invol] 1668
+[", and ] 1669
+[mov] 1670
+[sum] 1671
+[not] 1672
+[war] 1673
+[album] 1674
+[ffic] 1675
+[inform] 1676
+[said ] 1677
+[s.\x0aTh] 1678
+[rot] 1679
+[sy] 1680
+[, where ] 1681
+[service ] 1682
+[ended ] 1683
+[ich] 1684
+[ent of ] 1685
+[but the ] 1686
+[ball ] 1687
+[.\x0aC] 1688
+[present ] 1689
+[discover] 1690
+[in 18] 1691
+[issu] 1692
+[five ] 1693
+[ful ] 1694
+[ond] 1695
+[season ] 1696
+[law] 1697
+[age or ] 1698
+[thir] 1699
+[Presid] 1700
+[s (] 1701
+[place ] 1702
+[bet] 1703
+[third ] 1704
+[led ] 1705
+[Colleg] 1706
+[resear] 1707
+[May ] 1708
+[univers] 1709
+[5, ] 1710
+[ision] 1711
+[betwe] 1712
+[of the R] 1713
+[ific] 1714
+[signific] 1715
+[similar ] 1716
+[alian ] 1717
+[a's ] 1718
+[; the ] 1719
+[is an ] 1720
+[uly ] 1721
+[July ] 1722
+[hea] 1723
+[2, ] 1724
+[er's ] 1725
+[anti] 1726
+[195] 1727
+[female ] 1728
+[ref] 1729
+[anding ] 1730
+[red ] 1731
+[Australi] 1732
+[ither ] 1733
+[final ] 1734
+[tre] 1735
+[bre] 1736
+[as "] 1737
+[age was ] 1738
+[ut ] 1739
+[ensive ] 1740
+[prof] 1741
+[Wh] 1742
+[expl] 1743
+[dio ] 1744
+[empl] 1745
+[rid] 1746
+[Char] 1747
+[critic] 1748
+[o, ] 1749
+[emp] 1750
+[attemp] 1751
+[social ] 1752
+[10] 1753
+[ations, ] 1754
+[6, ] 1755
+[either ] 1756
+[5 to ] 1757
+[ower] 1758
+[current ] 1759
+[album ] 1760
+[e for ] 1761
+[called "] 1762
+[employ] 1763
+[self] 1764
+[5 year] 1765
+[65 year] 1766
+[ourc] 1767
+[eograph] 1768
+[as an ] 1769
+[State ] 1770
+[Sh] 1771
+[countri] 1772
+[Govern] 1773
+[ign ] 1774
+[just ] 1775
+[form ] 1776
+[ward] 1777
+[eas] 1778
+[men] 1779
+[ental ] 1780
+[ampion] 1781
+[00 femal] 1782
+[support] 1783
+[ity] 1784
+[member] 1785
+[of the M] 1786
+[play ] 1787
+[came ] 1788
+[particip] 1789
+[mod] 1790
+[ements ] 1791
+[eder] 1792
+[ide ] 1793
+[3, ] 1794
+[defin] 1795
+[ally, ] 1796
+[western ] 1797
+[For ] 1798
+[rather ] 1799
+[oung] 1800
+[ecially ] 1801
+[proc] 1802
+[previ] 1803
+[tech] 1804
+[techn] 1805
+[iven ] 1806
+[given ] 1807
+[ian] 1808
+[tion, ] 1809
+[ject ] 1810
+[ractic] 1811
+[practic] 1812
+[of the P] 1813
+[.\x0aShe ] 1814
+[y was ] 1815
+[atch] 1816
+[German] 1817
+[train] 1818
+[ily ] 1819
+[attack] 1820
+[minist] 1821
+[dem] 1822
+[act] 1823
+[of the B] 1824
+[group ] 1825
+[set ] 1826
+[cer] 1827
+[", "] 1828
+[aug] 1829
+[augh] 1830
+[exist] 1831
+[ale ] 1832
+[area of ] 1833
+[ogether ] 1834
+[gen] 1835
+[in the U] 1836
+[other] 1837
+[ington ] 1838
+[ow the ] 1839
+[can] 1840
+[of the C] 1841
+[game ] 1842
+[) was ] 1843
+[ingdom] 1844
+[ide] 1845
+[\xe2\x80\x94] 1846
+[sian ] 1847
+[ather ] 1848
+[Le] 1849
+[ank] 1850
+[val] 1851
+[Un] 1852
+[18 and ] 1853
+[never ] 1854
+[vic] 1855
+[ord ] 1856
+[le of ] 1857
+[e" ] 1858
+[ne ] 1859
+[ustri] 1860
+[head] 1861
+[world ] 1862
+[az] 1863
+[to a ] 1864
+[ology ] 1865
+[sit] 1866
+[influenc] 1867
+[and, ] 1868
+[eorg] 1869
+[Georg] 1870
+[long ] 1871
+[care] 1872
+[with no ] 1873
+[beli] 1874
+[is not ] 1875
+[eff] 1876
+[sett] 1877
+[mission] 1878
+[George ] 1879
+[se ] 1880
+[concer] 1881
+[enter] 1882
+[om ] 1883
+[special ] 1884
+[run] 1885
+[ace ] 1886
+[month] 1887
+[re ] 1888
+[.\x0aIn] 1889
+[ailable ] 1890
+[grad] 1891
+[in 200] 1892
+[ach ] 1893
+[ridg] 1894
+[self ] 1895
+[bert ] 1896
+[make ] 1897
+[exp] 1898
+[working ] 1899
+[epubl] 1900
+[epublic] 1901
+[Republic] 1902
+[lit] 1903
+[fir] 1904
+[16] 1905
+[proper] 1906
+[ient ] 1907
+[&amp] 1908
+[&amp; ] 1909
+[making ] 1910
+[ground ] 1911
+[central ] 1912
+[went ] 1913
+[for his ] 1914
+[ext ] 1915
+[ay, ] 1916
+[S. ] 1917
+[.S. ] 1918
+[U.S. ] 1919
+[all of ] 1920
+[dens] 1921
+[older] 1922
+[reduc] 1923
+[reach] 1924
+[young] 1925
+[engin] 1926
+[Western ] 1927
+[risti] 1928
+[Christi] 1929
+[tak] 1930
+[8, ] 1931
+[sl] 1932
+[among ] 1933
+[ever ] 1934
+[hum] 1935
+[ederal ] 1936
+[people, ] 1937
+[elected ] 1938
+[team] 1939
+[% had ] 1940
+[of the "] 1941
+[housing ] 1942
+[aliz] 1943
+[an the ] 1944
+[of the b] 1945
+[term] 1946
+[sk] 1947
+[mak] 1948
+[es from ] 1949
+[help] 1950
+[again ] 1951
+[constit] 1952
+[met] 1953
+[ath ] 1954
+[death ] 1955
+[in his ] 1956
+[no] 1957
+[worl] 1958
+[world] 1959
+[ret] 1960
+[an and ] 1961
+[outh] 1962
+[Sep] 1963
+[of a ] 1964
+[lo] 1965
+[season] 1966
+[record ] 1967
+[West ] 1968
+[every 1] 1969
+[children] 1970
+[succ] 1971
+[or more ] 1972
+[ity was ] 1973
+[Charles ] 1974
+[op ] 1975
+[0.] 1976
+[ze was 2] 1977
+[7, ] 1978
+[vol] 1979
+[iver ] 1980
+[River ] 1981
+[period] 1982
+[:\x0a] 1983
+[thers ] 1984
+[S ] 1985
+[played ] 1986
+[pointed ] 1987
+[func] 1988
+[ance of ] 1989
+[a, and ] 1990
+[usin] 1991
+[busin] 1992
+[atural ] 1993
+[Har] 1994
+[tural ] 1995
+[action ] 1996
+[ensus] 1997
+[census] 1998
+[use the ] 1999
+[Chinese ] 2000
+[created ] 2001
+[istr] 2002
+[educ] 2003
+[s.\x0aS] 2004
+[separ] 2005
+[experi] 2006
+[time, ] 2007
+[propos] 2008
+[Lond] 2009
+[London ] 2010
+[me ] 2011
+[left ] 2012
+[ativ] 2013
+[gu] 2014
+[anese ] 2015
+[apanese ] 2016
+[conn] 2017
+[contrac] 2018
+[subsequ] 2019
+[ise ] 2020
+[15] 2021
+[square m] 2022
+[grow] 2023
+[red to ] 2024
+[ministr] 2025
+[term ] 2026
+[.\x0aIn 199] 2027
+[\xc3\xa9] 2028
+[feature] 2029
+[dr] 2030
+[certain ] 2031
+[almost ] 2032
+[down ] 2033
+[alist ] 2034
+[ensu] 2035
+[Cl] 2036
+[music] 2037
+[spe] 2038
+[comb] 2039
+[, "] 2040
+[ency ] 2041
+[species ] 2042
+[natural ] 2043
+[air ] 2044
+[settl] 2045
+[south ] 2046
+[taken ] 2047
+[north ] 2048
+[father ] 2049
+[country ] 2050
+[sourc] 2051
+[mater] 2052
+[Kingdom] 2053
+[right ] 2054
+[point ] 2055
+[193] 2056
+[region ] 2057
+[public] 2058
+[0, ] 2059
+[back] 2060
+[west ] 2061
+[relig] 2062
+[provide ] 2063
+[ati] 2064
+[Ro] 2065
+[mor] 2066
+[in the c] 2067
+[Indi] 2068
+[becom] 2069
+[s on ] 2070
+[determin] 2071
+[es not ] 2072
+[oes not ] 2073
+[rop] 2074
+[within ] 2075
+[tel] 2076
+[orpor] 2077
+[incorpor] 2078
+[Canad] 2079
+[Bar] 2080
+[e that ] 2081
+[next ] 2082
+[ause of ] 2083
+[ru] 2084
+[sch] 2085
+[s a ] 2086
+[.\x0aIn 18] 2087
+[add] 2088
+[contri] 2089
+[contribu] 2090
+[units ] 2091
+[thing ] 2092
+[This ] 2093
+[raft ] 2094
+[expres] 2095
+[commer] 2096
+[commerc] 2097
+[alifor] 2098
+[aliforn] 2099
+[Californ] 2100
+[great ] 2101
+[War] 2102
+[class] 2103
+[human ] 2104
+[act ] 2105
+[emper] 2106
+[well] 2107
+[0 census] 2108
+[rain] 2109
+[C ] 2110
+[Mus] 2111
+[countr] 2112
+[es (] 2113
+[polic] 2114
+[num] 2115
+[.\x0aFor ] 2116
+[hap] 2117
+[team ] 2118
+[thre] 2119
+[ed, and ] 2120
+[hand] 2121
+[ussian ] 2122
+[appl] 2123
+[es a ] 2124
+[Mon] 2125
+[pris] 2126
+[ouncil] 2127
+[report] 2128
+[aul] 2129
+[ably ] 2130
+[carri] 2131
+[theor] 2132
+[rest] 2133
+[ument] 2134
+[form of ] 2135
+[new] 2136
+[conduc] 2137
+[er to ] 2138
+[plan] 2139
+[1.] 2140
+[probl] 2141
+[problem] 2142
+[ve] 2143
+[Man] 2144
+[ah] 2145
+[.\x0a"] 2146
+[wrot] 2147
+[position] 2148
+[es for ] 2149
+[years.\x0a] 2150
+[moved ] 2151
+[rul] 2152
+[tour] 2153
+[Pol] 2154
+[fied ] 2155
+[areas ] 2156
+[ib] 2157
+[ity and ] 2158
+[s, inclu] 2159
+[ague ] 2160
+[ments ] 2161
+[party ] 2162
+[imately ] 2163
+[power] 2164
+[istric] 2165
+[Distric] 2166
+[complex] 2167
+[compar] 2168
+[in 199] 2169
+[or the ] 2170
+[oin] 2171
+[join] 2172
+[order] 2173
+[urch ] 2174
+[recog] 2175
+[recogn] 2176
+[ies, ] 2177
+[s, but ] 2178
+[industri] 2179
+[.\x0aAn] 2180
+[ator ] 2181
+[eld] 2182
+[England ] 2183
+[9, ] 2184
+[en and ] 2185
+[en, ] 2186
+[charg] 2187
+[take ] 2188
+[perio] 2189
+[end of ] 2190
+[ations.\x0a] 2191
+[hal] 2192
+[acros] 2193
+[ground] 2194
+[active ] 2195
+[s' ] 2196
+[atter] 2197
+[few ] 2198
+[land, ] 2199
+[.\x0aN] 2200
+[ia, ] 2201
+[provinc] 2202
+[compos] 2203
+[esp] 2204
+[.\x0aWhen ] 2205
+[interest] 2206
+[from a ] 2207
+[all the ] 2208
+[won the ] 2209
+[mul] 2210
+[multi] 2211
+[rist] 2212
+[ounding ] 2213
+[e is ] 2214
+[ed an ] 2215
+[industr] 2216
+[ers to ] 2217
+[unic] 2218
+[unicip] 2219
+[municip] 2220
+[tw] 2221
+[fic ] 2222
+[fully ] 2223
+[James ] 2224
+[field] 2225
+[.\x0aSome ] 2226
+[rank] 2227
+[list] 2228
+[if ] 2229
+[tle ] 2230
+[adv] 2231
+[light ] 2232
+[Geograph] 2233
+[earli] 2234
+[book ] 2235
+[post] 2236
+[distri] 2237
+[distribu] 2238
+[an, 0.] 2239
+[each] 2240
+[ys] 2241
+[ek] 2242
+[ce ] 2243
+[someone ] 2244
+[quar] 2245
+[song] 2246
+[used in ] 2247
+[ales ] 2248
+[stre] 2249
+[del] 2250
+[ors ] 2251
+[return ] 2252
+[have a ] 2253
+[County, ] 2254
+[ost of ] 2255
+[o and ] 2256
+[efor] 2257
+[ear the ] 2258
+[higher ] 2259
+[a was ] 2260
+[territ] 2261
+[usband ] 2262
+[husband ] 2263
+[ess of ] 2264
+[my ] 2265
+[econd] 2266
+[second] 2267
+[let] 2268
+[he had ] 2269
+[novel] 2270
+[e of a ] 2271
+[ism ] 2272
+[burg] 2273
+[frequ] 2274
+[Champion] 2275
+[Great ] 2276
+[water] 2277
+[ress ] 2278
+[least ] 2279
+[ity.\x0a] 2280
+[himself ] 2281
+[ed in 18] 2282
+[nation] 2283
+[craft ] 2284
+[process] 2285
+[% had a ] 2286
+[Is] 2287
+[roll] 2288
+[featur] 2289
+[e, but ] 2290
+[.\x0aOther ] 2291
+[build] 2292
+[Indian ] 2293
+[stu] 2294
+[studi] 2295
+[mean] 2296
+[ven ] 2297
+[Re] 2298
+[ton] 2299
+[period ] 2300
+[School ] 2301
+[adem] 2302
+[little ] 2303
+[design ] 2304
+[show ] 2305
+[ock ] 2306
+[whose ] 2307
+[started ] 2308
+[must ] 2309
+[tically ] 2310
+[atic ] 2311
+[leading ] 2312
+[road ] 2313
+[gam] 2314
+[ount ] 2315
+[which] 2316
+[model] 2317
+[crip] 2318
+[exc] 2319
+[into a ] 2320
+[spir] 2321
+[pain] 2322
+[activ] 2323
+[racial ] 2324
+[agre] 2325
+[command] 2326
+[ted the ] 2327
+[disc] 2328
+[ouncil ] 2329
+[Pro] 2330
+[Roman ] 2331
+[requir] 2332
+[temper] 2333
+[four] 2334
+[version] 2335
+[Min] 2336
+[atter ] 2337
+[is, ] 2338
+[mag] 2339
+[person ] 2340
+[e.\x0aIn ] 2341
+[ly] 2342
+[) is a ] 2343
+[bar] 2344
+[who had ] 2345
+[Stre] 2346
+[highest ] 2347
+[right] 2348
+[oot] 2349
+[ootball ] 2350
+[ather] 2351
+[mal] 2352
+[on and ] 2353
+[s.\x0aThis ] 2354
+[book] 2355
+[s" ] 2356
+[Sc] 2357
+[ign] 2358
+[ok] 2359
+[ater, ] 2360
+[er was ] 2361
+[East ] 2362
+[road] 2363
+[seen ] 2364
+[12] 2365
+[county ] 2366
+[sci] 2367
+[anim] 2368
+[liter] 2369
+[title ] 2370
+[Robert ] 2371
+[oyal ] 2372
+[she was ] 2373
+[riend] 2374
+[friend] 2375
+[), the ] 2376
+[ards ] 2377
+[recogniz] 2378
+[fron] 2379
+[ed of ] 2380
+[Church] 2381
+[def] 2382
+[II] 2383
+[princ] 2384
+[control ] 2385
+[Ac] 2386
+[atively ] 2387
+[mid] 2388
+[erous ] 2389
+[ford ] 2390
+[are the ] 2391
+[rought ] 2392
+[brought ] 2393
+[Island] 2394
+[und] 2395
+[ateg] 2396
+[ed th] 2397
+[mp] 2398
+[club] 2399
+[approx] 2400
+[head ] 2401
+[states ] 2402
+[ated b] 2403
+[ive ] 2404
+[rap] 2405
+[result] 2406
+[20 ] 2407
+[strong ] 2408
+[broad] 2409
+[campa] 2410
+[stitut] 2411
+[distinc] 2412
+[Russian ] 2413
+[ick ] 2414
+[scienti] 2415
+[ean ] 2416
+[Minist] 2417
+[accep] 2418
+[ten] 2419
+[surfac] 2420
+[involv] 2421
+[short ] 2422
+[financ] 2423
+[change ] 2424
+[receiv] 2425
+[s was ] 2426
+[ring ] 2427
+[Per] 2428
+[lik] 2429
+[Ser] 2430
+[edical ] 2431
+[up to ] 2432
+[programm] 2433
+[ung] 2434
+[s.\x0aA] 2435
+[ste] 2436
+[Hous] 2437
+[concep] 2438
+[death] 2439
+[travel] 2440
+[ds, and ] 2441
+[student] 2442
+[near ] 2443
+[territor] 2444
+[er in ] 2445
+[ley ] 2446
+[at a ] 2447
+[market] 2448
+[related ] 2449
+[Native ] 2450
+[aughter ] 2451
+[pur] 2452
+[fail] 2453
+[priv] 2454
+[private ] 2455
+[Bl] 2456
+[aff] 2457
+[ing his ] 2458
+[require] 2459
+[ds were ] 2460
+[batt] 2461
+[do ] 2462
+[Scot] 2463
+[King ] 2464
+[war ] 2465
+[dat] 2466
+[alth ] 2467
+[City ] 2468
+[es with ] 2469
+[avi] 2470
+[project] 2471
+[ivil ] 2472
+[ready ] 2473
+[already ] 2474
+[best ] 2475
+[oon ] 2476
+[ants ] 2477
+[was not ] 2478
+[dest] 2479
+[destro] 2480
+[vir] 2481
+[ed to a ] 2482
+[effect] 2483
+[Union ] 2484
+[function] 2485
+[Europ] 2486
+[en's ] 2487
+[tion to ] 2488
+[raw] 2489
+[made up] 2490
+[federal ] 2491
+[mental ] 2492
+[sent ] 2493
+[read ] 2494
+[aus] 2495
+[wrote ] 2496
+[, in ] 2497
+[ographic] 2498
+[Ber] 2499
+[Royal ] 2500
+[ek ] 2501
+[ountain] 2502
+[conver] 2503
+[ask] 2504
+[itch] 2505
+[arti] 2506
+[ensus ] 2507
+[en under] 2508
+[super] 2509
+[meth] 2510
+[offer] 2511
+[project ] 2512
+[regular ] 2513
+[families] 2514
+[u ] 2515
+[bridg] 2516
+[3.] 2517
+[ence, ] 2518
+[white ] 2519
+[estim] 2520
+[rail] 2521
+[colleg] 2522
+[week] 2523
+[oph] 2524
+[living t] 2525
+[be the ] 2526
+[s.\x0aO] 2527
+[or to ] 2528
+[ether, ] 2529
+[ey] 2530
+[belie] 2531
+[maintain] 2532
+[roc] 2533
+[empor] 2534
+[cast] 2535
+[commit] 2536
+[os ] 2537
+[Cor] 2538
+[in the S] 2539
+[abor] 2540
+[e, inclu] 2541
+[t that ] 2542
+[Ph] 2543
+[ancient ] 2544
+[live ] 2545
+[dic] 2546
+[ised ] 2547
+[ living ] 2548
+[station] 2549
+[adian ] 2550
+[est of ] 2551
+[capital ] 2552
+[playing ] 2553
+[them, ] 2554
+[north] 2555
+[Street ] 2556
+[es.\x0aFor ] 2557
+[a new ] 2558
+[themsel] 2559
+[themselv] 2560
+[stated ] 2561
+[defe] 2562
+[ric ] 2563
+[New York] 2564
+[dri] 2565
+[larger ] 2566
+[.\x0aAs a ] 2567
+[domin] 2568
+[band] 2569
+[sion of ] 2570
+[way] 2571
+[building] 2572
+[ie ] 2573
+[diffic] 2574
+[difficul] 2575
+[panish ] 2576
+[ocument] 2577
+[document] 2578
+[indic] 2579
+[Spanish ] 2580
+[viron] 2581
+[environ] 2582
+[factur] 2583
+[ufactur] 2584
+[history ] 2585
+[ball] 2586
+[of the N] 2587
+[dam] 2588
+[al of ] 2589
+[not be ] 2590
+[draw] 2591
+[sty] 2592
+[; and ] 2593
+[off ] 2594
+["S] 2595
+[destroy] 2596
+[ia] 2597
+[instea] 2598
+[14] 2599
+[omin] 2600
+[colon] 2601
+[ety of ] 2602
+[athol] 2603
+[Cathol] 2604
+[at an ] 2605
+[ways ] 2606
+[young ] 2607
+[efore ] 2608
+[research] 2609
+[mall] 2610
+[small] 2611
+[wid] 2612
+[kill] 2613
+[hear] 2614
+[of the D] 2615
+[with an ] 2616
+[in and ] 2617
+[oppos] 2618
+[.\x0a\x0a] 2619
+[ax] 2620
+[e were ] 2621
+[eastern ] 2622
+[in 201] 2623
+[aster] 2624
+[spread ] 2625
+[vent] 2626
+[es.\x0aIn ] 2627
+[Qu] 2628
+[Gr] 2629
+[eth] 2630
+[earlier ] 2631
+[.\x0aWhile ] 2632
+[ly the ] 2633
+[hor] 2634
+[ition ] 2635
+[Centr] 2636
+[Central ] 2637
+[hol] 2638
+[of the A] 2639
+[Institut] 2640
+[capit] 2641
+[aut] 2642
+[now] 2643
+[tal] 2644
+[aun] 2645
+[aunch] 2646
+[launch] 2647
+[ is ] 2648
+[League ] 2649
+[vot] 2650
+[lower ] 2651
+[ille ] 2652
+[son, ] 2653
+[six ] 2654
+[entire ] 2655
+[Christ] 2656
+[treat] 2657
+[was $] 2658
+[men ] 2659
+[market ] 2660
+[", the ] 2661
+[ment, ] 2662
+[others ] 2663
+[4, and ] 2664
+[down] 2665
+[to have ] 2666
+[adi] 2667
+[tor ] 2668
+[rout] 2669
+[arri] 2670
+[eign ] 2671
+[foreign ] 2672
+[ (] 2673
+[elling ] 2674
+[wom] 2675
+[largely ] 2676
+[in 198] 2677
+[life ] 2678
+[number] 2679
+[0s, ] 2680
+[bit] 2681
+[that is ] 2682
+[survi] 2683
+[musical ] 2684
+[him to ] 2685
+[program ] 2686
+[epis] 2687
+[episod] 2688
+[cast ] 2689
+[likely ] 2690
+[estiv] 2691
+[of the T] 2692
+[cros] 2693
+[controll] 2694
+[alone ] 2695
+[Phil] 2696
+[liam] 2697
+[Parliam] 2698
+[t was ] 2699
+[ome of ] 2700
+[legal ] 2701
+[lost ] 2702
+[mer ] 2703
+[ik] 2704
+[ed its ] 2705
+[Commun] 2706
+[evol] 2707
+[Whit] 2708
+[decid] 2709
+[States C] 2710
+[day] 2711
+[ation (] 2712
+[acqu] 2713
+[ount of ] 2714
+[mary ] 2715
+[primary ] 2716
+[seven ] 2717
+[reased ] 2718
+[running ] 2719
+[interpre] 2720
+[ly, ] 2721
+[award] 2722
+[De] 2723
+[will be ] 2724
+[pen] 2725
+[word ] 2726
+[ples ] 2727
+[ouples ] 2728
+[couples ] 2729
+[sold ] 2730
+[Pl] 2731
+[viet ] 2732
+[oviet ] 2733
+[Soviet ] 2734
+[turn] 2735
+[ratic ] 2736
+[ocratic ] 2737
+[atch ] 2738
+[.\x0aIn 198] 2739
+[compe] 2740
+[competi] 2741
+[township] 2742
+[excep] 2743
+[years, ] 2744
+[annual ] 2745
+[anal] 2746
+[istic ] 2747
+[, was ] 2748
+[combin] 2749
+[radio ] 2750
+[s.\x0aHe ] 2751
+[) in ] 2752
+[south] 2753
+[ner ] 2754
+[ent and ] 2755
+[ets ] 2756
+[los] 2757
+[of his ] 2758
+[s of a ] 2759
+[village ] 2760
+[, or ] 2761
+[phys] 2762
+[ourn] 2763
+[es.\x0aH] 2764
+[Pri] 2765
+[First ] 2766
+[ech] 2767
+[: "] 2768
+[longer ] 2769
+[so the ] 2770
+[go] 2771
+[.\x0aIts ] 2772
+[atory ] 2773
+[effor] 2774
+[plement] 2775
+[transl] 2776
+[area] 2777
+[es have ] 2778
+[ed w] 2779
+[black ] 2780
+[sug] 2781
+[sugg] 2782
+[suggest] 2783
+[ichard ] 2784
+[Richard ] 2785
+[ge ] 2786
+[archit] 2787
+[champion] 2788
+[of the L] 2789
+[bir] 2790
+[Council] 2791
+[energ] 2792
+[conven] 2793
+[abil] 2794
+[administ] 2795
+[talian ] 2796
+[Italian ] 2797
+[exper] 2798
+[experim] 2799
+[board ] 2800
+[do not ] 2801
+[ess, ] 2802
+[smaller ] 2803
+[utive ] 2804
+[gradu] 2805
+[10 ] 2806
+[always ] 2807
+[caus] 2808
+[engine] 2809
+[church] 2810
+[island ] 2811
+[process ] 2812
+[half] 2813
+[section ] 2814
+[ner] 2815
+[church ] 2816
+[shar] 2817
+[har] 2818
+[on his ] 2819
+[ile (] 2820
+[ior ] 2821
+[regul] 2822
+[meas] 2823
+[house ] 2824
+[produce ] 2825
+[ounter] 2826
+[Histor] 2827
+[recent ] 2828
+[bod] 2829
+[itic] 2830
+[politic] 2831
+[.\x0aFrom] 2832
+[once ] 2833
+[Party ] 2834
+[action] 2835
+[aroun] 2836
+[, and a ] 2837
+[teach] 2838
+[led] 2839
+[compu] 2840
+[rat] 2841
+[nowled] 2842
+[by a ] 2843
+[det] 2844
+[etwork] 2845
+[ountain ] 2846
+[altern] 2847
+[greater ] 2848
+[in 197] 2849
+[nearly ] 2850
+[ought ] 2851
+[story ] 2852
+[attack ] 2853
+[valu] 2854
+[attrac] 2855
+[ino ] 2856
+[avid ] 2857
+[David ] 2858
+[hy] 2859
+[connect] 2860
+[concentr] 2861
+[direct ] 2862
+[assist] 2863
+[suppor] 2864
+[Lat] 2865
+[citi] 2866
+[meaning ] 2867
+[ance, ] 2868
+[Por] 2869
+[ling ] 2870
+[ssoci] 2871
+[Associ] 2872
+[as the "] 2873
+[a (] 2874
+[ength ] 2875
+[Ang] 2876
+[ins] 2877
+[ority ] 2878
+[ent, ] 2879
+[2000] 2880
+[occur] 2881
+[idence ] 2882
+[hom] 2883
+[Park] 2884
+[que ] 2885
+[ed "] 2886
+[possi] 2887
+[possib] 2888
+[eter ] 2889
+[agu] 2890
+[High ] 2891
+[ission] 2892
+[Li] 2893
+[ranch] 2894
+[ville ] 2895
+[mother ] 2896
+[2.] 2897
+[aster ] 2898
+[instit] 2899
+[e.\x0aS] 2900
+[13] 2901
+[English] 2902
+[eight ] 2903
+[ and a ] 2904
+[women ] 2905
+[ed the "] 2906
+[iograph] 2907
+[culture] 2908
+[Mor] 2909
+[Her] 2910
+[amous ] 2911
+[famous ] 2912
+[ress] 2913
+[prec] 2914
+[on to ] 2915
+[quarter] 2916
+[River] 2917
+[short] 2918
+[limited ] 2919
+[Academ] 2920
+[medical ] 2921
+[wood ] 2922
+[spac] 2923
+[better ] 2924
+[y in ] 2925
+[fre] 2926
+[Cour] 2927
+[" in ] 2928
+[.\x0aFrom ] 2929
+[ase ] 2930
+[open ] 2931
+[career] 2932
+[song ] 2933
+[might ] 2934
+[villag] 2935
+[etwork ] 2936
+[s.\x0aB] 2937
+[.\x0aAt ] 2938
+[element] 2939
+[ural ] 2940
+[widely ] 2941
+[ences ] 2942
+[of any ] 2943
+[Depart] 2944
+[ow the p] 2945
+[.\x0aAn ] 2946
+[specific] 2947
+[electron] 2948
+[e.\x0aThis ] 2949
+[city of ] 2950
+[cross] 2951
+[round] 2952
+[Eastern ] 2953
+[player ] 2954
+[gave ] 2955
+[Gu] 2956
+[overty ] 2957
+[vers] 2958
+[good ] 2959
+[ies and ] 2960
+[o-] 2961
+[that "] 2962
+[White, ] 2963
+[ou ] 2964
+[when he ] 2965
+[immedi] 2966
+[lead ] 2967
+[ff] 2968
+[Latino ] 2969
+[result ] 2970
+[plann] 2971
+[writing ] 2972
+[irc] 2973
+[full ] 2974
+[Greek ] 2975
+[mi] 2976
+[network] 2977
+[transfer] 2978
+[regard] 2979
+[Church ] 2980
+[aries ] 2981
+[vide] 2982
+[video ] 2983
+[neigh] 2984
+[neighbor] 2985
+[put ] 2986
+[ster] 2987
+[strong] 2988
+[atis] 2989
+[William] 2990
+[a, the ] 2991
+[e, a ] 2992
+[circ] 2993
+[ians ] 2994
+[heav] 2995
+[Pr] 2996
+[whether ] 2997
+[lor] 2998
+[Germany ] 2999
+[intend] 3000
+[track] 3001
+[Army ] 3002
+[ists ] 3003
+[2019] 3004
+[John] 3005
