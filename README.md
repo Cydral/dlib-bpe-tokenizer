@@ -20,7 +20,7 @@ To use this program, ensure you have the following dependencies installed:
 
 ## Example Model: `dlib_t3k_base`
 
-For reference, a pre-trained model named **`dlib_t3k_base`** is provided. This model formalizes a vocabulary of **3000 tokens** (excluding special tokens) and was trained on a **generalist English document corpus of 2.5 billion bytes**. You can use this model as a starting point for your NLP tasks or fine-tune it for specific applications. Additional pre-trained models with varying vocabulary sizes are also available, all generated under the same conditions and training corpus. You can use these models as a starting point for your NLP tasks or fine-tune them for specific applications.
+For reference, a pre-trained model named **`dlib_t3k_base`** is provided. This model formalizes a vocabulary of **3000 tokens** (excluding special tokens) and was trained on a **generalist English document corpus of 2.7 billion bytes**. You can use this model as a starting point for your NLP tasks or fine-tune it for specific applications. Additional pre-trained models with varying vocabulary sizes are also available, all generated under the same conditions and training corpus. You can use these models as a starting point for your NLP tasks or fine-tune them for specific applications.
 
 To load the `dlib_t3k_base` model:
 
