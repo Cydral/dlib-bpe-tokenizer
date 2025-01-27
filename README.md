@@ -26,4 +26,4 @@ To load the `dlib_t3k_base` model:
 
 ```cpp
 bpe_tokenizer tokenizer;
-tokenizer.load("dlib_t3k_base");
+dlib::deserialize("dlib_t3k_base.vocab") >> tokenizer;
