@@ -39,18 +39,57 @@
 #include <mutex>
 #include <algorithm>
 #include <utility>
+#include <regex>
 #include <boost/program_options.hpp>
 #include <boost/filesystem.hpp>
+#include <dlib/serialize.h>
+#include <dlib/base64.h>
 
 namespace po = boost::program_options;
 namespace fs = boost::filesystem;
 
+// ----------------------------------------------------------------------------------------
+// Enumeration defining text processing flags
+enum text_processing : uint16_t {
+    NONE = 0,
+    REPLACE_MULTIPLE_SPACES = 1 << 0, // Replace multiple consecutive spaces with a single space
+    REPLACE_MULTIPLE_NEWLINES = 1 << 1, // Replace multiple consecutive newlines with two newlines
+    REPLACE_NON_PRINTABLE = 1 << 2, // Replace non-printable characters with a space
+    FULL = 0xFFFF // Apply all text processing operations
+};
+
+// Replaces multiple consecutive spaces in the input text with a single space
+void replace_multiple_spaces(std::string& text) {
+    std::regex multiple_spaces(R"(\s{2,})");
+    text = std::regex_replace(text, multiple_spaces, " ");
+}
+
+// Replaces multiple consecutive newlines in the input text with two newlines
+void replace_multiple_newlines(std::string& text) {
+    std::regex multiple_newlines(R"(\n{3,})");
+    text = std::regex_replace(text, multiple_newlines, "\n\n");
+}
+
+// Replaces non-printable characters in the input text with a space
+void replace_non_printable(std::string& text) {
+    std::regex non_printable(R"([^[:print:]\n])");
+    text = std::regex_replace(text, non_printable, " ");
+}
+
+// Applies text preprocessing operations based on the specified flags
+void preprocess_text(std::string& text, int16_t processing_flags = text_processing::FULL) {    
+    if (processing_flags & REPLACE_MULTIPLE_NEWLINES) replace_multiple_newlines(text);
+    if (processing_flags & REPLACE_NON_PRINTABLE) replace_non_printable(text);
+    if (processing_flags & REPLACE_MULTIPLE_SPACES) replace_multiple_spaces(text);
+}
+
+// ----------------------------------------------------------------------------------------
 // Function to load data from a file or directory
 std::string load_data_from_file_or_directory(const std::string& path, size_t max_size = 0.1 * 1024 * 1024) {
     std::string data;
     size_t total_size = 0;
     bool max_size_reached = false;
-    const size_t buffer_size = 4 * 1024;
+    const size_t buffer_size = (4 * 1024);
 
     auto process_file = [&](const std::string& file_path) {
         std::ifstream input(file_path, std::ios::binary);
@@ -80,12 +119,10 @@ std::string load_data_from_file_or_directory(const std::string& path, size_t max
                         break;
                     }
                 }
-                else {
-                    break;  // No need to continue reading if max size is reached
-                }
+                else break;  // No need to continue reading if max size is reached
             }
         }
-        };
+    };
 
     try {
         if (fs::is_directory(path)) {
@@ -97,12 +134,8 @@ std::string load_data_from_file_or_directory(const std::string& path, size_t max
                 }
             }
         }
-        else if (fs::is_regular_file(path)) {
-            process_file(path);
-        }
-        else {
-            std::cerr << "Path is neither a file nor a directory: " << path << std::endl;
-        }
+        else if (fs::is_regular_file(path)) process_file(path);
+        else std::cerr << "Path is neither a file nor a directory: " << path << std::endl;
     }
     catch (const fs::filesystem_error& e) {
         std::cerr << "Filesystem error: " << e.what() << std::endl;
@@ -112,6 +145,7 @@ std::string load_data_from_file_or_directory(const std::string& path, size_t max
     return data;
 }
 
+// ----------------------------------------------------------------------------------------
 // BPE Tokenizer class
 class bpe_tokenizer {
 public:
@@ -187,9 +221,7 @@ public:
         // Convert text to byte IDs
         std::vector<int> ids;
         ids.reserve(text.size()); // Reserve space to avoid reallocations
-        for (char c : text) {
-            ids.push_back(static_cast<uint8_t>(c));
-        }
+        for (char c : text) ids.push_back(static_cast<uint8_t>(c));
 
         // Precompute valid pairs and their merge order
         auto stats = get_stats(ids); // Compute initial statistics
@@ -268,68 +300,56 @@ public:
         return std::string(bytes.begin(), bytes.end());
     }
 
-    // Save the tokenizer model and vocabulary to files
-    void save(const std::string& file_prefix) {
-        std::ofstream model_file(file_prefix + ".model");
-        model_file << "bpe-tokenizer v1\n";
-
-        for (int idx = BASE_VOCAB_SIZE + (int)special_tokens.size(); idx < vocab_size; ++idx) {
-            for (const auto& merge_pair : merges) {
+    // Save the tokenizer model and vocabulary to file
+    friend void serialize(const bpe_tokenizer& tok, std::ostream& out) {
+        dlib::serialize("bpe_tokenizer_", out);
+        //---
+        int nb_merges = (tok.vocab_size - (BASE_VOCAB_SIZE + (int)tok.special_tokens.size()));
+        dlib::serialize(nb_merges, out);
+        for (int idx = BASE_VOCAB_SIZE + (int)tok.special_tokens.size(); idx < tok.vocab_size; ++idx) {
+            for (const auto& merge_pair : tok.merges) {
                 if (merge_pair.second == idx) {
-                    model_file << merge_pair.first.first << " " << merge_pair.first.second << "\n";
+                    dlib::serialize(merge_pair.first.first, out);
+                    dlib::serialize(merge_pair.first.second, out);
                     break;
                 }
             }
         }
-
-        std::ofstream vocab_file(file_prefix + ".vocab");
-        for (const auto& v : vocab) {
-            vocab_file << "[" << bytes_to_string(v.second) << "] " << v.first << "\n";
+        //---
+        int nb_vocab = (int)tok.vocab.size();
+        dlib::serialize(nb_vocab, out);
+        for (const auto& v : tok.vocab) {
+            std::string token_str = tok.bytes_to_string(v.second);
+            dlib::serialize(token_str, out);
+            dlib::serialize(v.first, out);
         }
     }
 
-    // Load the tokenizer model and vocabulary from files
-    bool load(const std::string& model_file) {                
-        std::ifstream file(model_file + ".model");
-        if (!file.is_open()) {
-            std::cerr << "Error: Unable to open model file: " << model_file + ".model" << "\n";
-            return false;
-        }
-        std::string line;
-        std::getline(file, line); // Version
-
-        int idx = BASE_VOCAB_SIZE + (int)special_tokens.size(), a, b;
-        merges.clear();
-        while (std::getline(file, line)) {
-            std::istringstream iss(line);
-            iss >> a >> b;
-            merges[{a, b}] = idx;
+    // Load the tokenizer model and vocabulary from file
+    friend void deserialize(bpe_tokenizer& tok, std::istream& in) {
+        std::string version;
+        dlib::deserialize(version, in);
+        if (version != "bpe_tokenizer_")
+            throw dlib::serialization_error("Unexpected version '" + version + "' found while deserializing dlib::bpe_tokenizer_.");
+        //---
+        int idx = BASE_VOCAB_SIZE + (int)tok.special_tokens.size(), nb_merges, nb_vocab, a, b;
+        tok.merges.clear();
+        dlib::deserialize(nb_merges, in);
+        for (int m = 0; m < nb_merges; m++) {
+            dlib::deserialize(a, in);
+            dlib::deserialize(b, in);
+            tok.merges[{a, b}] = idx;
             idx++;
         }
-
-        std::ifstream vocab_file(model_file + ".vocab");
-        if (!vocab_file.is_open()) {
-            std::cerr << "Error: Unable to open vocab file: " << model_file + ".vocab" << "\n";
-            return false;
+        //---
+        std::string token_str;
+        tok.vocab.clear();
+        dlib::deserialize(nb_vocab, in);
+        for (int v = 0; v < nb_vocab; v++) {
+            dlib::deserialize(token_str, in);
+            dlib::deserialize(idx, in);
+            tok.vocab[idx] = tok.string_to_bytes(token_str);
         }
-        vocab.clear();
-        while (std::getline(vocab_file, line)) {
-            // Find the first '[' and the last ']' in the line
-            size_t start = line.find('[');
-            size_t end = line.rfind(']');  // Use rfind to find the last ']'
-            if (start != std::string::npos && end != std::string::npos) {
-                std::string token_str = line.substr(start + 1, end - start - 1);
-                try {
-                    idx = std::stoi(line.substr(end + 2));
-                    vocab[idx] = string_to_bytes(token_str);
-                }
-                catch (const std::invalid_argument& /* e */) {
-                    std::cerr << "Error: Invalid token ID in vocab file: " << line << "\n";
-                    continue;
-                }
-            }
-        }
-        return true;
     }
 
     // Get the ID of a special token
@@ -376,7 +396,7 @@ private:
             for (const auto& pair : local_stats) {
                 global_stats[pair.first] += pair.second;
             }
-            };
+        };
 
         size_t num_threads = std::thread::hardware_concurrency();
         size_t segment_size = ids.size() / num_threads;
@@ -407,8 +427,8 @@ private:
             size_t new_token_length = vocab[pair.first].size() + vocab[pair.second].size();
             if (new_token_length > MAX_TOKEN_LENGTH) continue; // Skip this pair if it exceeds the maximum token length
 
-            // Calculate the score for this pair (frequency * length)
-            double score = count * new_token_length;
+            // Calculate the score for this pair (frequency * length_penalty)
+            double score = (size_t)count * (new_token_length > (MAX_TOKEN_LENGTH / 2) ? 1.75 : 1.0);
 
             // Update the best pair if the current pair has a higher score
             if (score > max_score) {
@@ -436,37 +456,33 @@ private:
         return new_ids;
     }
 
+    // Decode/Encode a base64 string to/from a UTF-8 string
+    static std::string base64_decode(const std::string& base64_str)
+    {
+        dlib::base64 decoder;
+        std::istringstream sin(base64_str);
+        std::ostringstream sout;
+        decoder.decode(sin, sout);
+        return sout.str();
+    }
+    static std::string base64_encode(const std::string& input) {
+        dlib::base64 encoder;
+        std::istringstream sin(input);
+        std::ostringstream sout;
+        encoder.encode(sin, sout);
+        return sout.str();
+    }
+
     // Convert a sequence of bytes to a readable string
-    std::string bytes_to_string(const std::vector<uint8_t>& bytes) {
-        std::string result;
-        for (uint8_t byte : bytes) {
-            if (byte >= 32 && byte <= 126) {
-                result += static_cast<char>(byte);
-            }
-            else {
-                char buf[5];
-                snprintf(buf, sizeof(buf), "\\x%02x", byte);
-                result += buf;
-            }
-        }
-        return result;
+    static std::string bytes_to_string(const std::vector<uint8_t>& bytes) {
+        std::string data(bytes.begin(), bytes.end());
+        return base64_encode(data);
     }
 
     // Convert a string representation of bytes back to bytes
-    std::vector<uint8_t> string_to_bytes(const std::string& str) {
-        std::vector<uint8_t> bytes;
-        for (size_t i = 0; i < str.length(); ++i) {
-            if (str[i] == '\\' && i + 3 < str.length() && str[i + 1] == 'x') {
-                char hex[3] = { str[i + 2], str[i + 3], '\0' };
-                uint8_t byte = static_cast<uint8_t>(std::stoul(hex, nullptr, 16));
-                bytes.push_back(byte);
-                i += 3;
-            }
-            else {
-                bytes.push_back(static_cast<uint8_t>(str[i]));
-            }
-        }
-        return bytes;
+    static std::vector<uint8_t> string_to_bytes(const std::string& str) {
+        std::string decoded = base64_decode(str);
+        return std::vector<uint8_t>(decoded.begin(), decoded.end());
     }
 };
 
@@ -505,6 +521,9 @@ int main(int argc, char* argv[]) {
             return 1;
         }
         std::cout << "Data loaded successfully. Size: " << data.size() << " bytes" << std::endl;
+        std::cout << "Cleaning text in progress... ";
+        preprocess_text(data);
+        std::cout << "done\n";
     }
 
     if (vm.count("train-tokenizer")) {
@@ -516,9 +535,9 @@ int main(int argc, char* argv[]) {
 
         std::string str_vocab_size = vocab_size >= 1000 ? (std::to_string(vocab_size / 1000) + "k") : std::to_string(vocab_size);
         std::string file_prefix = "dlib_t" + str_vocab_size + "_base";
-        tokenizer.save(file_prefix);
+        dlib::serialize(file_prefix + ".vocab") << tokenizer;
         std::cout << "Model saved to " << file_prefix << ".[model|vocab]" << std::endl;
-        tokenizer.load(file_prefix);
+        dlib::deserialize(file_prefix + ".vocab") >> tokenizer;
 
         auto encoded = tokenizer.encode(test);
         std::cout << "Encoded: ";
