@@ -1,4 +1,4 @@
-/*
+﻿/*
  * BPE Tokenizer Implementation for Dlib Library
 
  * This program implements the Byte-Pair Encoding (BPE) algorithm, a subword tokenization method
@@ -528,7 +528,6 @@ int main(int argc, char* argv[]) {
 
     if (vm.count("train-tokenizer")) {
         bpe_tokenizer tokenizer;
-        std::string test = "Agroecological research investigates comprehensive environmental interaction mechanisms.";
         std::cout << "Training BPE tokenizer on data..." << std::endl;
         int vocab_size = vm["vocab-size"].as<int>();
         tokenizer.train(data, vocab_size, true);
@@ -539,18 +538,40 @@ int main(int argc, char* argv[]) {
         std::cout << "Model saved to " << file_prefix << ".[model|vocab]" << std::endl;
         dlib::deserialize(file_prefix + ".vocab") >> tokenizer;
 
-        auto encoded = tokenizer.encode(test);
-        std::cout << "Encoded: ";
-        for (int id : encoded) {
-            std::cout << id << " ";
-        }
-        std::cout << "\n";
+        // Test strings in different languages
+        std::vector<std::string> test_strings = {
+            u8"This is a test of the tokenisation process implemented in the Dlib library!", // English
+            u8"Ceci est un test du processus de tokenisation implémenté dans la bibliothèque Dlib!", // French
+            u8"Un tamm eo arnod ar prosess tokenadur implijet el levraoueg Dlib!", // Breton
+            u8"Dette er en test af tokeniseringsprocessen implementeret i Dlib-biblioteket!", // Danish
+            u8"这是对Dlib库中实现的标记化过程的测试！" // Chinese
+        };
 
-        encoded[3] = tokenizer.get_special_token_id("<|unk|>");
-        encoded.push_back(tokenizer.get_special_token_id("<|endoftext|>"));
-        encoded.push_back(tokenizer.get_special_token_id("<|pad|>"));
-        std::string decoded = tokenizer.decode(encoded);
-        std::cout << "Decoded: " << decoded << "\n";
+        for (const auto& test : test_strings) {
+            std::cout << "Original: " << test << "\n";
+
+            auto encoded = tokenizer.encode(test);
+            std::cout << "Encoded: ";
+            for (int id : encoded) std::cout << id << " ";
+            std::cout << "\n";
+            std::string decoded = tokenizer.decode(encoded);
+            if (decoded == test)
+                std::cout << "Test passed: decoded string matches the original string!\n";            
+            else {
+                std::cout << "Test failed: decoded string does not match the original string!\n";
+                std::cout << "Decoded string: " << decoded << "\n";
+            }
+
+            // Modify the encoded vector to test special tokens
+            if (!encoded.empty()) {
+                encoded[3] = tokenizer.get_special_token_id("<|unk|>");
+                encoded.push_back(tokenizer.get_special_token_id("<|endoftext|>"));
+                encoded.push_back(tokenizer.get_special_token_id("<|pad|>"));
+            }
+            decoded = tokenizer.decode(encoded);
+            std::cout << "Decoded with special tokens: " << decoded << "\n";
+            std::cout << "----------------------------------------\n";
+        }
     }
 
     return 0;
