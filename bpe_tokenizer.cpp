@@ -72,7 +72,7 @@ void replace_multiple_newlines(std::string& text) {
 
 // Replaces non-printable characters in the input text with a space
 void replace_non_printable(std::string& text) {
-    std::regex non_printable(R"([^[:print:]\n])");
+    std::regex non_printable(R"([^[:print:]àâäéèêëîïôöùûüçÀÂÄÉÈÊËÎÏÔÖÙÛÜÇåÅäÄöÖæÆøØáÁðÐéÉíÍóÓúÚýÝþÞß\n])");
     text = std::regex_replace(text, non_printable, " ");
 }
 
