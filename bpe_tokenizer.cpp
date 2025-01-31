@@ -163,6 +163,10 @@ public:
             {"<|unk|>", (BASE_VOCAB_SIZE + 4)},
             {"<|pad|>", (BASE_VOCAB_SIZE + 5)}
         };
+
+        // Initialize the vector of special token IDs
+        for (const auto& token : special_tokens)
+            special_token_map[token.second] = token.first;
     }
 
     // Train the tokenizer on the given text
@@ -218,81 +222,101 @@ public:
 
     // Encode the given text into subword tokens
     std::vector<int> encode(const std::string& text) {
-        // Convert text to byte IDs
-        std::vector<int> ids;
-        ids.reserve(text.size()); // Reserve space to avoid reallocations
-        for (char c : text) ids.push_back(static_cast<uint8_t>(c));
+        std::vector<int> result_ids;
 
-        // Precompute valid pairs and their merge order
-        auto stats = get_stats(ids); // Compute initial statistics
-        std::priority_queue<std::pair<int, std::pair<int, int>>> pq; // Min-heap based on merge order
-
-        // Initialize the priority queue with valid pairs
-        for (const auto& stat : stats) {
-            const std::pair<int, int>& pair = stat.first;
-            if (merges.count(pair)) {
-                pq.push({ merges.at(pair), pair }); // Use merge order as the key
-            }
+        // Split the text into paragraphs based on newline characters
+        std::vector<std::string> paragraphs;
+        size_t start = 0, end = text.find('\n');
+        while (end != std::string::npos) {
+            paragraphs.push_back(text.substr(start, end - start));
+            start = end + 1;
+            end = text.find('\n', start);
+        }
+        if (start < text.size()) { // Add the last paragraph (if any)
+            paragraphs.push_back(text.substr(start));
         }
 
-        // Merge pairs in order of their merge priority
-        while (!pq.empty()) {
-            const auto& top_element = pq.top(); // Get the pair with the smallest merge order
-            int merge_order = top_element.first;
-            const std::pair<int, int>& pair = top_element.second;
-            pq.pop();
+        // Encode each paragraph separately
+        int sot_tok = get_special_token_id("<|startoftext|>");
+        int eot_tok = get_special_token_id("<|endoftext|>");
+        for (const auto& paragraph : paragraphs) {
+            // Add the <|startoftext|> token at the beginning of each paragraph
+            result_ids.push_back(sot_tok);
 
-            // Check if the pair still exists in the current ids sequence
-            bool pair_found = false;
-            for (size_t i = 0; i < ids.size() - 1; ++i) {
-                if (ids[i] == pair.first && ids[i + 1] == pair.second) {
-                    pair_found = true;
-                    break;
-                }
-            }
-            if (!pair_found) continue; // Skip if the pair no longer exists
+            // Convert the paragraph to byte IDs
+            std::vector<int> ids;
+            ids.reserve(paragraph.size());
+            for (char c : paragraph) ids.push_back(static_cast<uint8_t>(c));
 
-            // Merge the pair
-            int idx = merges.at(pair);
-            ids = merge(ids, pair, idx); // Use an optimized merge function
+            // Precompute valid pairs and their merge order
+            auto stats = get_stats(ids);
+            std::priority_queue<std::pair<int, std::pair<int, int>>> pq;
 
-            // Update statistics and priority queue with new pairs formed after merging
-            stats = get_stats(ids);
+            // Initialize the priority queue with valid pairs
             for (const auto& stat : stats) {
-                const std::pair<int, int>& new_pair = stat.first;
-                if (merges.count(new_pair)) {
-                    pq.push({ merges.at(new_pair), new_pair });
+                const std::pair<int, int>& pair = stat.first;
+                if (merges.count(pair)) {
+                    pq.push({ merges.at(pair), pair });
                 }
             }
+
+            // Merge pairs in order of their merge priority
+            while (!pq.empty()) {
+                const auto& top_element = pq.top();
+                int merge_order = top_element.first;
+                const std::pair<int, int>& pair = top_element.second;
+                pq.pop();
+
+                // Check if the pair still exists in the current ids sequence
+                bool pair_found = false;
+                for (size_t i = 0; i < ids.size() - 1; ++i) {
+                    if (ids[i] == pair.first && ids[i + 1] == pair.second) {
+                        pair_found = true;
+                        break;
+                    }
+                }
+                if (!pair_found) continue;
+
+                // Merge the pair
+                int idx = merges.at(pair);
+                ids = merge(ids, pair, idx);
+
+                // Update statistics and priority queue with new pairs formed after merging
+                stats = get_stats(ids);
+                for (const auto& stat : stats) {
+                    const std::pair<int, int>& new_pair = stat.first;
+                    if (merges.count(new_pair)) {
+                        pq.push({ merges.at(new_pair), new_pair });
+                    }
+                }
+            }
+
+            // Append the encoded paragraph to the result
+            result_ids.insert(result_ids.end(), ids.begin(), ids.end());
+
+            // Add the <|endoftext|> token at the end of each paragraph
+            result_ids.push_back(eot_tok);
         }
 
-        return ids;
+        return result_ids;
     }
 
     // Decode a single token ID back into text
-    std::string decode(int id) {
-        for (const auto& token : special_tokens) {
-            if (token.second == id) {
-                return token.first;
-            }
-        }
-        auto& token = vocab.at(id);
-        return std::string(token.begin(), token.end());
+    std::string decode(int id, bool display_special_tokens = true) {
+        return decode(std::vector<int>({ id }), display_special_tokens);
     }
 
     // Decode a sequence of token IDs back into text
-    std::string decode(const std::vector<int>& ids) {
+    std::string decode(const std::vector<int>& ids, bool display_special_tokens = true) {
         std::vector<uint8_t> bytes;
         for (int id : ids) {
-            bool is_special_token = false;
-            for (const auto& token : special_tokens) {
-                if (token.second == id) {
-                    bytes.insert(bytes.end(), token.first.begin(), token.first.end());
-                    is_special_token = true;
-                    break;
-                }
-            }
-            if (!is_special_token) {
+            // Check if the ID is a special token
+            auto it = special_token_map.find(id);
+            if (it != special_token_map.end()) {
+                // It's a special token, get the corresponding string
+                if (display_special_tokens) bytes.insert(bytes.end(), it->second.begin(), it->second.end());
+            } else {
+                // It's a regular token, get the bytes from the vocabulary
                 auto& token = vocab.at(id);
                 bytes.insert(bytes.end(), token.begin(), token.end());
             }
@@ -366,6 +390,7 @@ public:
 
 private:
     std::map<std::string, int> special_tokens;
+    std::unordered_map<int, std::string> special_token_map;
     std::map<std::pair<int, int>, int> merges;
     std::map<int, std::vector<uint8_t>> vocab;
     int vocab_size;
@@ -388,14 +413,12 @@ private:
 
         auto worker = [&](size_t start, size_t end) {
             std::unordered_map<std::pair<int, int>, int, pair_hash> local_stats;
-            for (size_t i = start; i < end - 1; ++i) {
+            for (size_t i = start; i < end - 1 && i + 1 < ids.size(); ++i)
                 local_stats[{ids[i], ids[i + 1]}]++;
-            }
 
             std::lock_guard<std::mutex> lock(global_stats_mutex);
-            for (const auto& pair : local_stats) {
+            for (const auto& pair : local_stats)
                 global_stats[pair.first] += pair.second;
-            }
         };
 
         size_t num_threads = std::thread::hardware_concurrency();
