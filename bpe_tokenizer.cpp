@@ -228,12 +228,16 @@ public:
         std::vector<std::string> paragraphs;
         size_t start = 0, end = text.find('\n');
         while (end != std::string::npos) {
-            paragraphs.push_back(text.substr(start, end - start));
+            // Extract the paragraph and add it only if it's not empty
+            std::string paragraph = text.substr(start, end - start + 1);
+            if (!paragraph.empty() && paragraph != "\n") paragraphs.push_back(std::move(paragraph));
             start = end + 1;
             end = text.find('\n', start);
         }
-        if (start < text.size()) { // Add the last paragraph (if any)
-            paragraphs.push_back(text.substr(start));
+        // Add the last paragraph (if any) and only if it's not empty
+        if (start < text.size()) {
+            std::string paragraph = text.substr(start);
+            if (!paragraph.empty() && paragraph != "\n") paragraphs.push_back(std::move(paragraph));
         }
 
         // Encode each paragraph separately
