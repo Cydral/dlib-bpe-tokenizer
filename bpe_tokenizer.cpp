@@ -40,6 +40,7 @@
 #include <algorithm>
 #include <utility>
 #include <regex>
+#include <locale>
 #include <boost/program_options.hpp>
 #include <boost/filesystem.hpp>
 #include <dlib/serialize.h>
@@ -54,7 +55,6 @@ enum text_processing : uint16_t {
     NONE = 0,
     REPLACE_MULTIPLE_SPACES = 1 << 0, // Replace multiple consecutive spaces with a single space
     REPLACE_MULTIPLE_NEWLINES = 1 << 1, // Replace multiple consecutive newlines with two newlines
-    REPLACE_NON_PRINTABLE = 1 << 2, // Replace non-printable characters with a space
     FULL = 0xFFFF // Apply all text processing operations
 };
 
@@ -70,16 +70,9 @@ void replace_multiple_newlines(std::string& text) {
     text = std::regex_replace(text, multiple_newlines, "\n");
 }
 
-// Replaces non-printable characters in the input text with a space
-void replace_non_printable(std::string& text) {
-    std::regex non_printable(R"([^[:print:]àâäéèêëîïôöùûüçÀÂÄÉÈÊËÎÏÔÖÙÛÜÇåÅäÄöÖæÆøØáÁðÐéÉíÍóÓúÚýÝþÞß\n])");
-    text = std::regex_replace(text, non_printable, " ");
-}
-
 // Applies text preprocessing operations based on the specified flags
 void preprocess_text(std::string& text, int16_t processing_flags = text_processing::FULL) {    
     if (processing_flags & REPLACE_MULTIPLE_NEWLINES) replace_multiple_newlines(text);
-    if (processing_flags & REPLACE_NON_PRINTABLE) replace_non_printable(text);
     if (processing_flags & REPLACE_MULTIPLE_SPACES) replace_multiple_spaces(text);
 }
 
@@ -515,6 +508,7 @@ private:
 
 // Main function to handle command-line arguments and execute the tokenizer
 int main(int argc, char* argv[]) {
+    std::locale::global(std::locale("en_US.UTF-8"));
     po::options_description desc("Options");
     desc.add_options()
         ("train-tokenizer", "Train the BPE tokenizer")
