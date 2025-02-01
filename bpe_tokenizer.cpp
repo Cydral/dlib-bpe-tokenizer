@@ -66,8 +66,8 @@ void replace_multiple_spaces(std::string& text) {
 
 // Replaces multiple consecutive newlines in the input text with two newlines
 void replace_multiple_newlines(std::string& text) {
-    std::regex multiple_newlines(R"(\n{3,})");
-    text = std::regex_replace(text, multiple_newlines, "\n\n");
+    std::regex multiple_newlines(R"(\n{2,})");
+    text = std::regex_replace(text, multiple_newlines, "\n");
 }
 
 // Replaces non-printable characters in the input text with a space
