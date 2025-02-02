@@ -10,7 +10,7 @@
  * Key Features:
  * - Supports training on text data from files or directories.
  * - Allows customization of the target vocabulary size.
- * - Handles special tokens such as <|endoftext|>, <|unk|>, and <|pad|>.
+ * - Handles special tokens such as <text>...</text>, <unk>, and <pad>.
  * - Enforces a maximum token length to prevent excessively long subword units.
  * - Provides methods for encoding, decoding, and saving/loading the tokenizer model.
 
@@ -149,12 +149,34 @@ public:
         }
         // Initialize special tokens with sequential IDs
         special_tokens = {
-            {"<|startoftext|>", BASE_VOCAB_SIZE},
-            {"<|endoftext|>", BASE_VOCAB_SIZE + 1},
-            {"<|question|>", BASE_VOCAB_SIZE + 2},
-            {"<|response|>", BASE_VOCAB_SIZE + 3},
-            {"<|unk|>", (BASE_VOCAB_SIZE + 4)},
-            {"<|pad|>", (BASE_VOCAB_SIZE + 5)}
+            {"<text>",      BASE_VOCAB_SIZE},
+            {"</text>",     BASE_VOCAB_SIZE + 1},
+            {"<url>",       BASE_VOCAB_SIZE + 2},
+            {"</url>",      BASE_VOCAB_SIZE + 3},
+            {"<image>",     BASE_VOCAB_SIZE + 4},
+            {"</image>",    BASE_VOCAB_SIZE + 5},
+            {"<video>",     BASE_VOCAB_SIZE + 6},
+            {"</video>",    BASE_VOCAB_SIZE + 7},
+            {"<audio>",     BASE_VOCAB_SIZE + 8},
+            {"</audio>",    BASE_VOCAB_SIZE + 9},
+            {"<file>",      BASE_VOCAB_SIZE + 10},
+            {"</file>",     BASE_VOCAB_SIZE + 11},
+            {"<code>",      BASE_VOCAB_SIZE + 12},
+            {"</code>",     BASE_VOCAB_SIZE + 13},
+            {"<summary>",   BASE_VOCAB_SIZE + 14},
+            {"</summary>",  BASE_VOCAB_SIZE + 15},
+            {"<think>",     BASE_VOCAB_SIZE + 16},
+            {"</think>",    BASE_VOCAB_SIZE + 17},
+            {"<start>",     BASE_VOCAB_SIZE + 18},
+            {"<end>",       BASE_VOCAB_SIZE + 19},
+            {"<user>",      BASE_VOCAB_SIZE + 20},
+            {"<bot>",       BASE_VOCAB_SIZE + 21},
+            {"<system>",    BASE_VOCAB_SIZE + 22},
+            {"<question>",  BASE_VOCAB_SIZE + 23},
+            {"<answer>",    BASE_VOCAB_SIZE + 24},
+            {"<search>",    BASE_VOCAB_SIZE + 25},
+            {"<unk>",       BASE_VOCAB_SIZE + 26},
+            {"<pad>",       BASE_VOCAB_SIZE + 27}
         };
 
         // Initialize the vector of special token IDs
@@ -234,10 +256,10 @@ public:
         }
 
         // Encode each paragraph separately
-        int sot_tok = get_special_token_id("<|startoftext|>");
-        int eot_tok = get_special_token_id("<|endoftext|>");
+        int sot_tok = get_special_token_id("<text>");
+        int eot_tok = get_special_token_id("</text>");
         for (const auto& paragraph : paragraphs) {
-            // Add the <|startoftext|> token at the beginning of each paragraph
+            // Add the <text> token at the beginning of each paragraph
             result_ids.push_back(sot_tok);
 
             // Convert the paragraph to byte IDs
@@ -291,7 +313,7 @@ public:
             // Append the encoded paragraph to the result
             result_ids.insert(result_ids.end(), ids.begin(), ids.end());
 
-            // Add the <|endoftext|> token at the end of each paragraph
+            // Add the </text> token at the end of each paragraph
             result_ids.push_back(eot_tok);
         }
 
@@ -325,9 +347,9 @@ public:
     friend void serialize(const bpe_tokenizer& tok, std::ostream& out) {
         dlib::serialize("bpe_tokenizer_", out);
         //---
-        int nb_merges = (tok.vocab_size - (BASE_VOCAB_SIZE + (int)tok.special_tokens.size()));
+        int nb_merges = tok.merges.size();
         dlib::serialize(nb_merges, out);
-        for (int idx = BASE_VOCAB_SIZE + (int)tok.special_tokens.size(); idx < tok.vocab_size; ++idx) {
+        for (int idx = (BASE_VOCAB_SIZE + (int)tok.special_tokens.size()); idx < (tok.vocab_size + tok.special_tokens.size()); ++idx) {
             for (const auto& merge_pair : tok.merges) {
                 if (merge_pair.second == idx) {
                     dlib::serialize(merge_pair.first.first, out);
@@ -575,22 +597,22 @@ int main(int argc, char* argv[]) {
             std::cout << "Encoded: ";
             for (int id : encoded) std::cout << id << " ";
             std::cout << "\n";
-            std::string decoded = tokenizer.decode(encoded);
-            if (decoded == test)
-                std::cout << "Test passed: decoded string matches the original string!\n";            
-            else {
+            std::string decoded = tokenizer.decode(encoded, false);
+            if (decoded == test) {
+                std::cout << "Test passed: decoded string matches the original string!\n";
+                // Modify the encoded vector to test special tokens
+                if (!encoded.empty()) {
+                    encoded[3] = tokenizer.get_special_token_id("<unk>");
+                    encoded.push_back(tokenizer.get_special_token_id("<pad>"));
+                    encoded.push_back(tokenizer.get_special_token_id("<pad>"));
+                    encoded.push_back(tokenizer.get_special_token_id("<pad>"));
+                }
+                decoded = tokenizer.decode(encoded);
+                std::cout << "Decoded with special tokens: " << decoded << "\n";
+            } else {
                 std::cout << "Test failed: decoded string does not match the original string!\n";
                 std::cout << "Decoded string: " << decoded << "\n";
             }
-
-            // Modify the encoded vector to test special tokens
-            if (!encoded.empty()) {
-                encoded[3] = tokenizer.get_special_token_id("<|unk|>");
-                encoded.push_back(tokenizer.get_special_token_id("<|endoftext|>"));
-                encoded.push_back(tokenizer.get_special_token_id("<|pad|>"));
-            }
-            decoded = tokenizer.decode(encoded);
-            std::cout << "Decoded with special tokens: " << decoded << "\n";
             std::cout << "----------------------------------------\n";
         }
     }
